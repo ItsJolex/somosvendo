@@ -1165,6 +1165,9 @@ function t(key){const i=window.VENDO_I18N;return i?i.t(key):'';}
 function isEn(){return document.documentElement.lang==='en';}
 function chipLabel(key){return t('chip_'+key);}
 function chipValue(key){return t('val_'+key)||key;}
+// Instagram solo admite letras, numeros, puntos y guion bajo. Sin este filtro,
+// un "/" acababa en el enlace como %2F y la URL ya no representaba al usuario.
+function igHandle(){return inputIg.value.trim().replace(/^@+/,'').replace(/\s+/g,'').replace(/[^A-Za-z0-9._]/g,'');}
 
 function openModal(e){
 if(e)e.preventDefault();
@@ -1221,7 +1224,7 @@ setupChips('location-chips',inputLocation);
 
 // Vista Previa de Instagram en vivo
 inputIg?.addEventListener('input',()=>{
-const raw=inputIg.value.trim().replace(/^@+/,'').replace(/\s+/g,'');
+const raw=igHandle();
 if(raw){
 igPreviewBox.style.display='flex';
 igPreviewUser.textContent='@'+raw;
@@ -1242,7 +1245,7 @@ const company=inputCompany.value.trim()||(isEn()?'[Your Business Name]':'[Nombre
 const category=chipValue(inputCategory.value);
 const service=chipValue(inputService.value);
 const location=chipValue(inputLocation.value);
-const igRaw=inputIg.value.trim().replace(/^@+/,'').replace(/\s+/g,'');
+const igRaw=igHandle();
 const igText=igRaw?'@'+igRaw:(isEn()?'Not yet / In progress':'Aún no poseo');
 
 let msg;
