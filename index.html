@@ -20,6 +20,17 @@ h1,h2,h3,.btn{font-family:"Fredoka","Trebuchet MS",sans-serif;font-weight:600;li
 .wrap{max-width:1100px;margin:auto;padding:0 22px}
 .logo{display:block;height:34px;aspect-ratio:3.06;background:var(--logo) no-repeat left center/contain}
 nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+
+/* NAVBAR CON ACCIONES AGRUPADAS */
+.nav-actions{display:flex;align-items:center;gap:12px}
+
+/* BOTÓN SELECTOR DE IDIOMA */
+.lang-switch-btn{background:#022015;color:var(--cream);border:1px solid var(--forest);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;gap:8px;font-family:"Space Mono",monospace;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s ease;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.lang-switch-btn:hover{border-color:var(--lime);color:var(--lime);transform:translateY(-1px)}
+.flag-icon-wrap{display:flex;align-items:center;justify-content:center;width:20px;height:14px;border-radius:3px;overflow:hidden;box-shadow:0 0 2px rgba(0,0,0,.5)}
+.flag-svg{display:block;width:100%;height:100%}
+
+@media(max-width:600px){nav{gap:10px}.nav-actions{gap:8px}nav .btn.ghost{padding:10px 16px;font-size:15px}.lang-switch-btn{padding:8px 10px;font-size:12px}.logo{font-size:19px}}
 .btn{display:inline-block;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;text-decoration:none;font-size:18px;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}.btn.ghost{background:none;color:var(--cream);box-shadow:inset 0 0 0 2px var(--forest)}
 a:focus-visible,.btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
@@ -195,15 +206,23 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 </head>
 <body>
 <div class="wrap">
-<nav><a class="logo" href="#" aria-label="VENDO"></a><a class="btn ghost" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos</a></nav>
+<nav><a class="logo" href="#" aria-label="VENDO"></a><div class="nav-actions"><a class="btn ghost" data-i18n="nav_contact" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos</a>
+
+<button class="lang-switch-btn" id="lang-switch-btn" type="button" aria-label="Switch to English" title="Switch language / Cambiar idioma">
+<span class="flag-icon-wrap" id="flag-icon-wrap">
+<svg class="flag-svg" id="flag-svg" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"></svg>
+</span>
+<span class="lang-label" id="lang-label">ES</span>
+</button>
+</div></nav>
 <header class="hero">
 <div>
-<h1>Que tu negocio se encuentre, se vea y venda.</h1>
-<p>Páginas web y Google Maps optimizado para comercios de San Diego, Valencia y todo Carabobo. Sin promesas infladas: trabajo claro y resultados que puedes comprobar.</p>
-<div class="cta"><a class="btn" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Hablar con un asesor</a><a class="btn ghost" href="#servicios">Ver servicios</a></div>
+<h1 data-i18n="hero_h1">Que tu negocio se encuentre, se vea y venda.</h1>
+<p data-i18n="hero_p">Páginas web y Google Maps optimizado para comercios de San Diego, Valencia y todo Carabobo. Sin promesas infladas: trabajo claro y resultados que puedes comprobar.</p>
+<div class="cta"><a class="btn" data-i18n="hero_cta_advisor" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Hablar con un asesor</a><a class="btn ghost" data-i18n="hero_cta_services" href="#servicios">Ver servicios</a></div>
 </div>
-<div class="do"><div class="bub">Soy Do. Te ayudo a optimizar tu marca.</div>
-<img alt="Do, la mascota de VENDO" src="assets/pet-do.svg"></div>
+<div class="do"><div class="bub" data-i18n="do_bubble">Soy Do. Te ayudo a optimizar tu marca.</div>
+<img alt="Do, la mascota de VENDO" data-i18n-alt="do_alt" src="assets/pet-do.svg"></div>
 </header>
 </div>
 
@@ -211,30 +230,30 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 <section class="maps" id="google-maps"><div class="wrap">
 <!-- Columna Izquierda: Mensaje Persuasivo -->
 <div class="maps-info">
-<span class="tag-kicker" style="background:rgba(206,241,123,.15);color:var(--lime)">SIMULADOR EN VIVO · IMPACTO INMEDIATO</span>
-<h2>La diferencia entre que te encuentren o pasen de largo.</h2>
-<p>El 82% de las personas en San Diego y Valencia buscan en Google antes de salir a comprar o pedir delivery. Un perfil abandonado ahuyenta a los clientes; un perfil optimizado genera confianza y ventas inmediatas.</p>
+<span class="tag-kicker" data-i18n="maps_tag" style="background:rgba(206,241,123,.15);color:var(--lime)">SIMULADOR EN VIVO · IMPACTO INMEDIATO</span>
+<h2 data-i18n="maps_h2">La diferencia entre que te encuentren o pasen de largo.</h2>
+<p data-i18n="maps_p">El 82% de las personas en San Diego y Valencia buscan en Google antes de salir a comprar o pedir delivery. Un perfil abandonado ahuyenta a los clientes; un perfil optimizado genera confianza y ventas inmediatas.</p>
 
 <div class="maps-features">
 <div class="m-feat">
 <span class="m-feat-icon">📍</span>
 <div>
-<strong>Ubicación y ruta exacta:</strong>
-<p>Tus clientes llegan directo a tu local con Google Maps o Waze sin dar vueltas.</p>
+<strong data-i18n="maps_feat1_title">Ubicación y ruta exacta:</strong>
+<p data-i18n="maps_feat1_p">Tus clientes llegan directo a tu local con Google Maps o Waze sin dar vueltas.</p>
 </div>
 </div>
 <div class="m-feat">
 <span class="m-feat-icon">💬</span>
 <div>
-<strong>Botón directo a WhatsApp:</strong>
-<p>El cliente ve tus fotos, menú o catálogo y te contacta con un solo toque desde Google.</p>
+<strong data-i18n="maps_feat2_title">Botón directo a WhatsApp:</strong>
+<p data-i18n="maps_feat2_p">El cliente ve tus fotos, menú o catálogo y te contacta con un solo toque desde Google.</p>
 </div>
 </div>
 <div class="m-feat">
 <span class="m-feat-icon">⭐</span>
 <div>
-<strong>Estrategia de reseñas reales:</strong>
-<p>Te enseñamos a pedir opiniones a clientes satisfechos para mantenerte en el Top 3 local.</p>
+<strong data-i18n="maps_feat3_title">Estrategia de reseñas reales:</strong>
+<p data-i18n="maps_feat3_p">Te enseñamos a pedir opiniones a clientes satisfechos para mantenerte en el Top 3 local.</p>
 </div>
 </div>
 </div>
@@ -243,12 +262,12 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 <!-- Columna Derecha: Tarjeta Interactiva con Toggle -->
 <div class="maps-interactive-wrap">
 <!-- Selector Interactivo (Toggle) -->
-<div class="maps-toggle" role="tablist" aria-label="Simulador de perfil Google Maps">
+<div class="maps-toggle" role="tablist" aria-label="Simulador de perfil Google Maps" data-i18n-aria="aria_maps_sim">
 <button type="button" class="toggle-btn" id="toggle-bad" role="tab" aria-selected="false">
-<span class="dot-indicator red"></span> Sin optimizar
+<span class="dot-indicator red"></span> <span data-i18n="maps_toggle_bad">Sin optimizar</span>
 </button>
 <button type="button" class="toggle-btn active" id="toggle-good" role="tab" aria-selected="true">
-<span class="dot-indicator green"></span> Con VENDO
+<span class="dot-indicator green"></span> <span data-i18n="maps_toggle_good">Con VENDO</span>
 </button>
 </div>
 
@@ -261,7 +280,7 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 <div class="card-content">
 <div class="card-title-row">
 <h3 id="card-name">Tu Negocio</h3>
-<span class="verified-icon" id="verified-icon" title="Perfil verificado">✓</span>
+<span class="verified-icon" id="verified-icon" title="Perfil verificado" data-i18n-title="title_verified">✓</span>
 </div>
 
 <div class="rating-row" id="card-rating">
@@ -270,7 +289,7 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 <span class="reviews-count">(58 opiniones)</span>
 </div>
 
-<p class="category-text">Comercio local · San Diego / Valencia, Carabobo</p>
+<p class="category-text" data-i18n="maps_cat">Comercio local · San Diego / Valencia, Carabobo</p>
 
 <div class="status-pill" id="card-status">
 <span class="status-dot"></span>
@@ -279,10 +298,10 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 
 <!-- Botones de Acción de Google Maps -->
 <div class="acts" id="card-acts">
-<span class="act-btn">Llamar</span>
-<a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener" class="act-btn act-whatsapp" id="card-wa-btn">WhatsApp directo</a>
-<span class="act-btn">Cómo llegar</span>
-<span class="act-btn">Sitio web</span>
+<span class="act-btn" data-i18n="maps_act_call">Llamar</span>
+<a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener" class="act-btn act-whatsapp" id="card-wa-btn" data-i18n="maps_act_wa" data-i18n-href="wa">WhatsApp directo</a>
+<span class="act-btn" data-i18n="maps_act_dir">Cómo llegar</span>
+<span class="act-btn" data-i18n="maps_act_web">Sitio web</span>
 </div>
 
 <!-- Pie de Tarjeta / Nota de Estado -->
@@ -295,74 +314,74 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 </div></section>
 
 <section class="svc" id="servicios"><div class="wrap">
-<h2>Lo que hacemos por tu negocio</h2>
-<div class="row"><h3>Páginas web</h3><p>Sitio rápido y pensado para el celular, con tu catálogo, tus datos de contacto y un botón directo a WhatsApp.</p></div>
-<div class="row"><h3>Google Maps</h3><p>Perfil de Empresa creado, verificado y optimizado para que los vecinos y visitantes te encuentren primero.</p></div>
-<div class="row"><h3>Marketing local</h3><p>Reseñas reales, WhatsApp Business, catálogos digitales y embudos de venta simples. También te ayudamos a vender en Yummy cuando aplica.</p></div>
+<h2 data-i18n="services_h2">Lo que hacemos por tu negocio</h2>
+<div class="row"><h3 data-i18n="service1_h3">Páginas web</h3><p data-i18n="service1_p">Sitio rápido y pensado para el celular, con tu catálogo, tus datos de contacto y un botón directo a WhatsApp.</p></div>
+<div class="row"><h3 data-i18n="service2_h3">Google Maps</h3><p data-i18n="service2_p">Perfil de Empresa creado, verificado y optimizado para que los vecinos y visitantes te encuentren primero.</p></div>
+<div class="row"><h3 data-i18n="service3_h3">Marketing local</h3><p data-i18n="service3_p">Reseñas reales, WhatsApp Business, catálogos digitales y embudos de venta simples. También te ayudamos a vender en Yummy cuando aplica.</p></div>
 </div></section>
 
 <!-- SECCIÓN LA DIFERENCIA VENDO (BENTO GRID) -->
 <section class="diferencia" id="ventajas"><div class="wrap">
 <div class="diff-head">
-<span class="tag-kicker">POR QUÉ VENDO · ESTÁNDAR PROFESIONAL</span>
-<h2>Tu marca merece más que un enlace prestado.</h2>
-<p>Muchos ofrecen páginas web; muy pocos resuelven de verdad la presencia y visibilidad de tu negocio. Así es como trabajamos:</p>
+<span class="tag-kicker" data-i18n="bento_tag">POR QUÉ VENDO · ESTÁNDAR PROFESIONAL</span>
+<h2 data-i18n="bento_h2">Tu marca merece más que un enlace prestado.</h2>
+<p data-i18n="bento_subtitle">Muchos ofrecen páginas web; muy pocos resuelven de verdad la presencia y visibilidad de tu negocio. Así es como trabajamos:</p>
 </div>
 
 <div class="bento-grid">
 <!-- BENTO 1: COMPARATIVA DE DOMINIOS (ANCHO DESTACADO) -->
 <div class="bento-card bento-domain">
-<div class="bento-badge">Tu Identidad Digital</div>
-<h3>¿Cansado de que el link de tu negocio se vea así?</h3>
+<div class="bento-badge" data-i18n="bento_d_badge">Tu Identidad Digital</div>
+<h3 data-i18n="bento_d_title">¿Cansado de que el link de tu negocio se vea así?</h3>
 
 <div class="domain-comparison">
 <div class="domain-box domain-bad">
 <div class="domain-header">
-<span class="domain-status">❌ Enlaces genéricos de plataformas</span>
+<span class="domain-status" data-i18n="bento_d_bad_status">❌ Enlaces genéricos de plataformas</span>
 </div>
 <code>plataforma-menu.app/store/v2/valencia_sur?ref=bio_link_8492</code>
-<p class="domain-note">Largo, sospechoso para el cliente y le hace publicidad a otra app.</p>
+<p class="domain-note" data-i18n="bento_d_bad_note">Largo, sospechoso para el cliente y le hace publicidad a otra app.</p>
 </div>
 
 <div class="domain-box domain-good">
 <div class="domain-header">
-<span class="domain-status">✅ Tu dominio propio con VENDO</span>
+<span class="domain-status" data-i18n="bento_d_good_status">✅ Tu dominio propio con VENDO</span>
 </div>
-<code>tumarca.com <span class="domain-verified">· SSL Seguro</span></code>
-<p class="domain-note">Limpio, profesional y memorable. Todo configurado por nosotros (DNS, SSL y hosting).</p>
+<code>tumarca.com <span class="domain-verified" data-i18n="bento_ssl">· SSL Seguro</span></code>
+<p class="domain-note" data-i18n="bento_d_good_note">Limpio, profesional y memorable. Todo configurado por nosotros (DNS, SSL y hosting).</p>
 </div>
 </div>
-<p class="bento-footer-text">Tú no tocas configuraciones técnicas ni paneles raros. Nosotros dejamos tu dominio listo y funcionando para que solo te preocupes por vender.</p>
+<p class="bento-footer-text" data-i18n="bento_d_footer">Tú no tocas configuraciones técnicas ni paneles raros. Nosotros dejamos tu dominio listo y funcionando para que solo te preocupes por vender.</p>
 </div>
 
 <!-- BENTO 2: GOOGLE SEARCH CONSOLE & SEO -->
 <div class="bento-card bento-seo">
-<div class="bento-badge">Visibilidad Real</div>
+<div class="bento-badge" data-i18n="bento_s_badge">Visibilidad Real</div>
 <div class="seo-icon-pill">
 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
 Google Search Console
 </div>
-<h3>No diseñamos páginas para que queden invisibles.</h3>
-<p>Una página sin indexar es como abrir una tienda en medio del desierto. Conectamos tu web a las herramientas oficiales de Google para que comiences a aparecer en las búsquedas locales de tus clientes.</p>
+<h3 data-i18n="bento_s_title">No diseñamos páginas para que queden invisibles.</h3>
+<p data-i18n="bento_s_p">Una página sin indexar es como abrir una tienda en medio del desierto. Conectamos tu web a las herramientas oficiales de Google para que comiences a aparecer en las búsquedas locales de tus clientes.</p>
 <div class="seo-check-list">
-<span>✓ Indexación de URLs en Google</span>
-<span>✓ Optimización para búsqueda móvil</span>
-<span>✓ Vinculación directa con Google Maps</span>
+<span data-i18n="seo_check1">✓ Indexación de URLs en Google</span>
+<span data-i18n="seo_check2">✓ Optimización para búsqueda móvil</span>
+<span data-i18n="seo_check3">✓ Vinculación directa con Google Maps</span>
 </div>
 </div>
 
 <!-- BENTO 3: VENTA DIRECTA SIN COMISIONES -->
 <div class="bento-card bento-small">
-<div class="bento-badge">Tus Ganancias</div>
-<h3>0% comisiones por pedido</h3>
-<p>El cliente ve tus productos y con un solo toque te escribe directamente a tu WhatsApp. No intermediarios, no comisiones por venta.</p>
+<div class="bento-badge" data-i18n="bento_c_badge">Tus Ganancias</div>
+<h3 data-i18n="bento_c_title">0% comisiones por pedido</h3>
+<p data-i18n="bento_c_p">El cliente ve tus productos y con un solo toque te escribe directamente a tu WhatsApp. No intermediarios, no comisiones por venta.</p>
 </div>
 
 <!-- BENTO 4: CERO COMPLICACIONES -->
 <div class="bento-card bento-small">
-<div class="bento-badge">Tranquilidad Total</div>
-<h3>Asesoría y soporte cercano</h3>
-<p>¿Dudas con tu plan, precios o cambios en tu web? Cuentas con asesoría comercial directa y soporte técnico continuo desde San Diego y Valencia, Carabobo.</p>
+<div class="bento-badge" data-i18n="bento_sup_badge">Tranquilidad Total</div>
+<h3 data-i18n="bento_sup_title">Asesoría y soporte cercano</h3>
+<p data-i18n="bento_sup_p">¿Dudas con tu plan, precios o cambios en tu web? Cuentas con asesoría comercial directa y soporte técnico continuo desde San Diego y Valencia, Carabobo.</p>
 </div>
 </div>
 </div></section>
@@ -370,45 +389,45 @@ Google Search Console
 <section class="clients" id="clientes"><div class="wrap">
 <div class="clients-head-bar">
 <div class="clients-head-text">
-<span class="tag-kicker">CASOS REALES · RESULTADOS QUE SE VEN</span>
-<h2>¿Quiénes ya dejaron atrás la invisibilidad digital?</h2>
-<p>Construimos la cara digital de negocios que compiten en serio. Proyectos con presencia sólida tanto en comercios locales como a nivel internacional.</p>
+<span class="tag-kicker" data-i18n="clients_tag">CASOS REALES · RESULTADOS QUE SE VEN</span>
+<h2 data-i18n="clients_h2">¿Quiénes ya dejaron atrás la invisibilidad digital?</h2>
+<p data-i18n="clients_p">Construimos la cara digital de negocios que compiten en serio. Proyectos con presencia sólida tanto en comercios locales como a nivel internacional.</p>
 </div>
 
-<div class="clients-nav-controls" aria-label="Navegación entre clientes">
-<button class="client-nav-btn prev" id="clients-prev" aria-label="Ver cliente anterior" title="Anterior">
+<div class="clients-nav-controls" aria-label="Navegación entre clientes" data-i18n-aria="aria_clients_nav">
+<button class="client-nav-btn prev" id="clients-prev" aria-label="Ver cliente anterior" data-i18n-aria="aria_prev_client" title="Anterior" data-i18n-title="title_prev">
 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
 </button>
-<button class="client-nav-btn next" id="clients-next" aria-label="Ver siguiente cliente" title="Siguiente">
+<button class="client-nav-btn next" id="clients-next" aria-label="Ver siguiente cliente" data-i18n-aria="aria_next_client" title="Siguiente" data-i18n-title="title_next">
 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
 </button>
 </div>
 </div>
 
-<div class="clients-slider" id="clients-slider" role="region" aria-label="Carrusel de proyectos de clientes">
+<div class="clients-slider" id="clients-slider" role="region" aria-label="Carrusel de proyectos de clientes" data-i18n-aria="aria_clients_carousel">
 <article class="client-card featured">
 <div class="client-carousel-wrap">
-<div class="carousel" id="gtech-carousel" aria-label="Galería de G-Tech.us">
+<div class="carousel" id="gtech-carousel" aria-label="Galería de G-Tech.us" data-i18n-aria="aria_gtech_gallery">
 <div class="carousel-track">
-<div class="carousel-slide active"><img src="assets/clients/gtech-1.jpg" alt="G-Tech.us - Vista de catálogo y productos" loading="lazy"></div>
-<div class="carousel-slide"><img src="assets/clients/gtech-2.jpg" alt="G-Tech.us - Identidad y plataforma digital" loading="lazy"></div>
-<div class="carousel-slide"><img src="assets/clients/gtech-3.jpg" alt="G-Tech.us - Interfaz móvil y experiencia de usuario" loading="lazy"></div>
+<div class="carousel-slide active"><img src="assets/clients/gtech-1.jpg" alt="G-Tech.us - Vista de catálogo y productos" data-i18n-alt="gtech1_alt" loading="lazy"></div>
+<div class="carousel-slide"><img src="assets/clients/gtech-2.jpg" alt="G-Tech.us - Identidad y plataforma digital" data-i18n-alt="gtech2_alt" loading="lazy"></div>
+<div class="carousel-slide"><img src="assets/clients/gtech-3.jpg" alt="G-Tech.us - Interfaz móvil y experiencia de usuario" data-i18n-alt="gtech3_alt" loading="lazy"></div>
 </div>
-<button class="carousel-btn prev" aria-label="Imagen anterior">‹</button>
-<button class="carousel-btn next" aria-label="Siguiente imagen">›</button>
+<button class="carousel-btn prev" aria-label="Imagen anterior" data-i18n-aria="aria_prev_img">‹</button>
+<button class="carousel-btn next" aria-label="Siguiente imagen" data-i18n-aria="aria_next_img">›</button>
 <div class="carousel-dots">
-<button class="dot active" data-index="0" aria-label="Ir a diapositiva 1"></button>
-<button class="dot" data-index="1" aria-label="Ir a diapositiva 2"></button>
-<button class="dot" data-index="2" aria-label="Ir a diapositiva 3"></button>
+<button class="dot active" data-index="0" aria-label="Ir a diapositiva 1" data-i18n-aria="aria_dot1"></button>
+<button class="dot" data-index="1" aria-label="Ir a diapositiva 2" data-i18n-aria="aria_dot2"></button>
+<button class="dot" data-index="2" aria-label="Ir a diapositiva 3" data-i18n-aria="aria_dot3"></button>
 </div>
 </div>
 </div>
 <div class="client-info">
-<div class="client-badge">🇺🇸 Proyecto Internacional · Estados Unidos</div>
+<div class="client-badge" data-i18n="gtech_badge">🇺🇸 Proyecto Internacional · Estados Unidos</div>
 <h3>G-Tech.us</h3>
-<p>Solución web de catálogo y presentación de tecnología, repuestos y equipos para el mercado estadounidense. Estructura rápida, diseño sobrio y enfoque comercial directo.</p>
+<p data-i18n="gtech_desc">Solución web de catálogo y presentación de tecnología, repuestos y equipos para el mercado estadounidense. Estructura rápida, diseño sobrio y enfoque comercial directo.</p>
 <div class="client-actions">
-<a href="https://gtechs.us" target="_blank" rel="noopener" class="client-link">Visitar gtechs.us <span>↗</span></a>
+<a href="https://gtechs.us" target="_blank" rel="noopener" class="client-link"><span data-i18n="gtech_link">Visitar gtechs.us</span> <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 </article>
@@ -416,12 +435,12 @@ Google Search Console
 <article class="client-card">
 <div class="client-info" style="height:100%;display:flex;flex-direction:column;justify-content:space-between">
 <div>
-<div class="client-badge">🛍️ Catálogo Digital &amp; Venta Directa</div>
+<div class="client-badge" data-i18n="jolie_badge">🛍️ Catálogo Digital &amp; Venta Directa</div>
 <h3>Jolie Fragrances</h3>
-<p>Plataforma web para catálogo interactivo de perfumería exclusiva. Diseñada para navegación ágil en dispositivos móviles y canalización inmediata de pedidos a WhatsApp.</p>
+<p data-i18n="jolie_desc">Plataforma web para catálogo interactivo de perfumería exclusiva. Diseñada para navegación ágil en dispositivos móviles y canalización inmediata de pedidos a WhatsApp.</p>
 </div>
 <div class="client-actions" style="margin-top:24px">
-<a href="https://jolie-fragrances-seven.vercel.app/" target="_blank" rel="noopener" class="client-link">Visitar jolie-fragrances <span>↗</span></a>
+<a href="https://jolie-fragrances-seven.vercel.app/" target="_blank" rel="noopener" class="client-link"><span data-i18n="jolie_link">Visitar jolie-fragrances</span> <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 </article>
@@ -432,32 +451,32 @@ Google Search Console
 <section class="contact-section" id="contacto"><div class="wrap">
 <div class="contact-box">
 <div class="contact-content">
-<span class="tag-kicker" style="background:rgba(1,17,10,.15);color:var(--ink)">PASO SIGUIENTE · SIN COMPROMISO</span>
-<h2>Cuéntanos de tu negocio y te armamos el plan ideal.</h2>
-<p>Sin letras pequeñas ni tecnicismos confusos. Analizamos tu situación actual y te decimos exactamente cómo poner tu negocio en el mapa digital.</p>
+<span class="tag-kicker" data-i18n="contact_tag" style="background:rgba(1,17,10,.15);color:var(--ink)">PASO SIGUIENTE · SIN COMPROMISO</span>
+<h2 data-i18n="contact_h2">Cuéntanos de tu negocio y te armamos el plan ideal.</h2>
+<p data-i18n="contact_p">Sin letras pequeñas ni tecnicismos confusos. Analizamos tu situación actual y te decimos exactamente cómo poner tu negocio en el mapa digital.</p>
 
 <ul class="contact-perks">
-<li><strong>Asesoría directa y personalizada:</strong> Hablas con nuestro asesor comercial en San Diego, Carabobo, para consultar precios, paquetes y evaluar lo que tu negocio necesita sin compromiso.</li>
-<li><strong>Desarrollo técnico a medida:</strong> Tu página, dominio y herramientas quedan en manos de programación especializada, sin plantillas genéricas rotas.</li>
-<li><strong>Presupuesto claro:</strong> Sabrás el monto exacto desde el primer contacto, sin sorpresas ni mensualidades escondidas.</li>
+<li data-i18n="contact_perk1"><strong>Asesoría directa y personalizada:</strong> Hablas con nuestro asesor comercial en San Diego, Carabobo, para consultar precios, paquetes y evaluar lo que tu negocio necesita sin compromiso.</li>
+<li data-i18n="contact_perk2"><strong>Desarrollo técnico a medida:</strong> Tu página, dominio y herramientas quedan en manos de programación especializada, sin plantillas genéricas rotas.</li>
+<li data-i18n="contact_perk3"><strong>Presupuesto claro:</strong> Sabrás el monto exacto desde el primer contacto, sin sorpresas ni mensualidades escondidas.</li>
 </ul>
 </div>
 
 <div class="contact-cta-card">
 <div class="cta-status">
 <span class="live-pulse"></span>
-<span>Asesor comercial en línea</span>
+<span data-i18n="contact_cta_status">Asesor comercial en línea</span>
 </div>
-<p class="cta-card-title">Consulta precios y disponibilidad</p>
-<p class="cta-card-desc">Nuestro asesor te atenderá por WhatsApp para comercios de San Diego, Valencia, toda Venezuela o proyectos internacionales.</p>
+<p class="cta-card-title" data-i18n="contact_cta_title">Consulta precios y disponibilidad</p>
+<p class="cta-card-desc" data-i18n="contact_cta_desc">Nuestro asesor te atenderá por WhatsApp para comercios de San Diego, Valencia, toda Venezuela o proyectos internacionales.</p>
 
-<a class="btn btn-whatsapp-large" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">
+<a class="btn btn-whatsapp-large" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">
 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg>
-Consultar precios por WhatsApp
+<span data-i18n="contact_cta_btn">Consultar precios por WhatsApp</span>
 </a>
 
 <div class="cta-extra-links">
-<span>O síguenos en <a href="https://www.instagram.com/somosvendo.ve?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@somosvendo.ve</a></span>
+<span data-i18n="contact_ig_prefix">O síguenos en</span> <a href="https://www.instagram.com/somosvendo.ve?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@somosvendo.ve</a>
 </div>
 </div>
 </div>
@@ -466,10 +485,10 @@ Consultar precios por WhatsApp
 <footer><div class="wrap">
 <a class="logo" href="#" aria-label="VENDO"></a>
 <div class="channels">
-<a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener" aria-label="WhatsApp Asesor comercial al +58 414-9428999"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg><span>WhatsApp Asesor: +58 414-9428999</span></a>
-<a href="https://www.instagram.com/somosvendo.ve?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram de VENDO, somosvendo.ve"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg><span>Instagram: @somosvendo.ve</span></a>
+<a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener" data-i18n-href="wa" aria-label="WhatsApp Asesor comercial al +58 414-9428999" data-i18n-aria="aria_footer_wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg><span data-i18n="footer_wa">WhatsApp Asesor: +58 414-9428999</span></a>
+<a href="https://www.instagram.com/somosvendo.ve?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram de VENDO, somosvendo.ve" data-i18n-aria="aria_footer_ig"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg><span data-i18n="footer_ig">Instagram: @somosvendo.ve</span></a>
 </div>
-<span>San Diego &amp; Valencia · Carabobo, Venezuela</span>
+<span data-i18n="footer_geo">San Diego &amp; Valencia · Carabobo, Venezuela</span>
 </div></footer>
 
 <script>
@@ -530,37 +549,350 @@ const cardStatus=document.getElementById('card-status');
 const footerNote=document.getElementById('card-footer-note');
 const waBtn=document.getElementById('card-wa-btn');
 if(!btnBad||!btnGood||!card)return;
-function setMode(mode){
-if(mode==='bad'){
-btnBad.classList.add('active');
-btnBad.setAttribute('aria-selected','true');
-btnGood.classList.remove('active');
-btnGood.setAttribute('aria-selected','false');
-card.classList.remove('mode-good');
-card.classList.add('mode-bad');
-pinBadge.textContent='⚠️ Sin verificar';
-cardName.textContent='Tu Negocio (Sin reclamar)';
-cardRating.innerHTML='<span class="stars">★★★☆☆</span> <span class="rating-num">3.1</span> <span class="reviews-count">(2 opiniones antiguas)</span>';
-cardStatus.innerHTML='<span class="status-dot"></span> <span class="status-label">Horario no verificado · Podría estar cerrado</span>';
-footerNote.textContent='⚠️ ¿Eres el dueño de esta empresa? Reclámala ahora en Google';
-waBtn.style.display='none';
-}else{
-btnGood.classList.add('active');
-btnGood.setAttribute('aria-selected','true');
-btnBad.classList.remove('active');
-btnBad.setAttribute('aria-selected','false');
-card.classList.remove('mode-bad');
-card.classList.add('mode-good');
-pinBadge.textContent='✓ Verificado en Google';
-cardName.textContent='Tu Negocio';
-cardRating.innerHTML='<span class="stars">★★★★★</span> <span class="rating-num">4.9</span> <span class="reviews-count">(58 opiniones)</span>';
-cardStatus.innerHTML='<span class="status-dot"></span> <span class="status-label">Abierto ahora · Cierra 8:00 PM</span>';
-footerNote.textContent='✓ Perfil optimizado y vinculado a WhatsApp por VENDO';
-waBtn.style.display='block';
-}
+let mode='good';
+function t(key){const i=window.VENDO_I18N;return i?i.t(key):'';}
+function setMode(next){
+mode=next;
+const bad=next==='bad';
+const on=bad?btnBad:btnGood,off=bad?btnGood:btnBad;
+on.classList.add('active');on.setAttribute('aria-selected','true');
+off.classList.remove('active');off.setAttribute('aria-selected','false');
+card.classList.toggle('mode-bad',bad);
+card.classList.toggle('mode-good',!bad);
+const p=bad?'bad':'good';
+pinBadge.textContent=t('sim_'+p+'_badge');
+cardName.textContent=t('sim_'+p+'_name');
+cardRating.innerHTML='<span class="stars">'+t('sim_'+p+'_stars')+'</span> <span class="rating-num">'+t('sim_'+p+'_rating')+'</span> <span class="reviews-count">'+t('sim_'+p+'_reviews')+'</span>';
+cardStatus.innerHTML='<span class="status-dot"></span> <span class="status-label">'+t('sim_'+p+'_status')+'</span>';
+footerNote.textContent=t('sim_'+p+'_note');
+if(waBtn)waBtn.style.display=bad?'none':'block';
 }
 btnBad.addEventListener('click',()=>setMode('bad'));
 btnGood.addEventListener('click',()=>setMode('good'));
+document.addEventListener('vendo:langchange',()=>setMode(mode));
+setMode(mode);
+})();
+// ==========================================
+// SISTEMA DE INTERNACIONALIZACIÓN (i18n) VENDO
+// ==========================================
+(function initI18n(){
+const flags={
+es:'<rect width="24" height="4.5" fill="#AA151B"/><rect y="4.5" width="24" height="7" fill="#F1BF00"/><rect y="11.5" width="24" height="4.5" fill="#AA151B"/>',
+en:'<rect width="24" height="16" fill="#B22234"/><path d="M0,2.46h24M0,4.92h24M0,7.38h24M0,9.84h24M0,12.3h24M0,14.76h24" stroke="#fff" stroke-width="1.23"/><rect width="10" height="8.6" fill="#3C3B6E"/>'
+};
+
+const waMessages={
+es:'Hola, me gustaría consultar con el asesor de VENDO los planes y precios para mi negocio.',
+en:"Hi, I'd like to talk to the VENDO advisor about plans and pricing for my business."
+};
+
+const translations={
+es:{
+page_title:'VENDO | Presencia digital para comercios de San Diego y Valencia, Carabobo',
+nav_contact:'Escríbenos',
+hero_h1:'Que tu negocio se encuentre, se vea y venda.',
+hero_p:'Páginas web y Google Maps optimizado para comercios de San Diego, Valencia y todo Carabobo. Sin promesas infladas: trabajo claro y resultados que puedes comprobar.',
+hero_cta_advisor:'Hablar con un asesor',
+hero_cta_services:'Ver servicios',
+do_bubble:'Soy Do. Te ayudo a optimizar tu marca.',
+do_alt:'Do, la mascota de VENDO',
+maps_tag:'SIMULADOR EN VIVO · IMPACTO INMEDIATO',
+maps_h2:'La diferencia entre que te encuentren o pasen de largo.',
+maps_p:'El 82% de las personas en San Diego y Valencia buscan en Google antes de salir a comprar o pedir delivery. Un perfil abandonado ahuyenta a los clientes; un perfil optimizado genera confianza y ventas inmediatas.',
+maps_feat1_title:'Ubicación y ruta exacta:',
+maps_feat1_p:'Tus clientes llegan directo a tu local con Google Maps o Waze sin dar vueltas.',
+maps_feat2_title:'Botón directo a WhatsApp:',
+maps_feat2_p:'El cliente ve tus fotos, menú o catálogo y te contacta con un solo toque desde Google.',
+maps_feat3_title:'Estrategia de reseñas reales:',
+maps_feat3_p:'Te enseñamos a pedir opiniones a clientes satisfechos para mantenerte en el Top 3 local.',
+maps_toggle_bad:'Sin optimizar',
+maps_toggle_good:'Con VENDO',
+maps_cat:'Comercio local · San Diego / Valencia, Carabobo',
+maps_act_call:'Llamar',
+maps_act_wa:'WhatsApp directo',
+maps_act_dir:'Cómo llegar',
+maps_act_web:'Sitio web',
+sim_good_badge:'✓ Verificado en Google',
+sim_good_name:'Tu Negocio',
+sim_good_stars:'★★★★★',
+sim_good_rating:'4.9',
+sim_good_reviews:'(58 opiniones)',
+sim_good_status:'Abierto ahora · Cierra 8:00 PM',
+sim_good_note:'✓ Perfil optimizado y vinculado a WhatsApp por VENDO',
+sim_bad_badge:'⚠️ Sin verificar',
+sim_bad_name:'Tu Negocio (Sin reclamar)',
+sim_bad_stars:'★★★☆☆',
+sim_bad_rating:'3.1',
+sim_bad_reviews:'(2 opiniones antiguas)',
+sim_bad_status:'Horario no verificado · Podría estar cerrado',
+sim_bad_note:'⚠️ ¿Eres el dueño de esta empresa? Reclámala ahora en Google',
+services_h2:'Lo que hacemos por tu negocio',
+service1_h3:'Páginas web',
+service1_p:'Sitio rápido y pensado para el celular, con tu catálogo, tus datos de contacto y un botón directo a WhatsApp.',
+service2_h3:'Google Maps',
+service2_p:'Perfil de Empresa creado, verificado y optimizado para que los vecinos y visitantes te encuentren primero.',
+service3_h3:'Marketing local',
+service3_p:'Reseñas reales, WhatsApp Business, catálogos digitales y embudos de venta simples. También te ayudamos a vender en Yummy cuando aplica.',
+bento_tag:'POR QUÉ VENDO · ESTÁNDAR PROFESIONAL',
+bento_h2:'Tu marca merece más que un enlace prestado.',
+bento_subtitle:'Muchos ofrecen páginas web; muy pocos resuelven de verdad la presencia y visibilidad de tu negocio. Así es como trabajamos:',
+bento_d_badge:'Tu Identidad Digital',
+bento_d_title:'¿Cansado de que el link de tu negocio se vea así?',
+bento_d_bad_status:'❌ Enlaces genéricos de plataformas',
+bento_d_bad_note:'Largo, sospechoso para el cliente y le hace publicidad a otra app.',
+bento_d_good_status:'✅ Tu dominio propio con VENDO',
+bento_d_good_note:'Limpio, profesional y memorable. Todo configurado por nosotros (DNS, SSL y hosting).',
+bento_ssl:'· SSL Seguro',
+bento_d_footer:'Tú no tocas configuraciones técnicas ni paneles raros. Nosotros dejamos tu dominio listo y funcionando para que solo te preocupes por vender.',
+bento_s_badge:'Visibilidad Real',
+bento_s_title:'No diseñamos páginas para que queden invisibles.',
+bento_s_p:'Una página sin indexar es como abrir una tienda en medio del desierto. Conectamos tu web a las herramientas oficiales de Google para que comiences a aparecer en las búsquedas locales de tus clientes.',
+seo_check1:'✓ Indexación de URLs en Google',
+seo_check2:'✓ Optimización para búsqueda móvil',
+seo_check3:'✓ Vinculación directa con Google Maps',
+bento_c_badge:'Tus Ganancias',
+bento_c_title:'0% comisiones por pedido',
+bento_c_p:'El cliente ve tus productos y con un solo toque te escribe directamente a tu WhatsApp. No intermediarios, no comisiones por venta.',
+bento_sup_badge:'Tranquilidad Total',
+bento_sup_title:'Asesoría y soporte cercano',
+bento_sup_p:'¿Dudas con tu plan, precios o cambios en tu web? Cuentas con asesoría comercial directa y soporte técnico continuo desde San Diego y Valencia, Carabobo.',
+clients_tag:'CASOS REALES · RESULTADOS QUE SE VEN',
+clients_h2:'¿Quiénes ya dejaron atrás la invisibilidad digital?',
+clients_p:'Construimos la cara digital de negocios que compiten en serio. Proyectos con presencia sólida tanto en comercios locales como a nivel internacional.',
+gtech_badge:'🇺🇸 Proyecto Internacional · Estados Unidos',
+gtech_desc:'Solución web de catálogo y presentación de tecnología, repuestos y equipos para el mercado estadounidense. Estructura rápida, diseño sobrio y enfoque comercial directo.',
+gtech_link:'Visitar gtechs.us',
+jolie_badge:'🛍️ Catálogo Digital & Venta Directa',
+jolie_desc:'Plataforma web para catálogo interactivo de perfumería exclusiva. Diseñada para navegación ágil en dispositivos móviles y canalización inmediata de pedidos a WhatsApp.',
+jolie_link:'Visitar jolie-fragrances',
+contact_tag:'PASO SIGUIENTE · SIN COMPROMISO',
+contact_h2:'Cuéntanos de tu negocio y te armamos el plan ideal.',
+contact_p:'Sin letras pequeñas ni tecnicismos confusos. Analizamos tu situación actual y te decimos exactamente cómo poner tu negocio en el mapa digital.',
+contact_perk1:'<strong>Asesoría directa y personalizada:</strong> Hablas con nuestro asesor comercial en San Diego, Carabobo, para consultar precios, paquetes y evaluar lo que tu negocio necesita sin compromiso.',
+contact_perk2:'<strong>Desarrollo técnico a medida:</strong> Tu página, dominio y herramientas quedan en manos de programación especializada, sin plantillas genéricas rotas.',
+contact_perk3:'<strong>Presupuesto claro:</strong> Sabrás el monto exacto desde el primer contacto, sin sorpresas ni mensualidades escondidas.',
+contact_cta_status:'Asesor comercial en línea',
+contact_cta_title:'Consulta precios y disponibilidad',
+contact_cta_desc:'Nuestro asesor te atenderá por WhatsApp para comercios de San Diego, Valencia, toda Venezuela o proyectos internacionales.',
+contact_cta_btn:'Consultar precios por WhatsApp',
+contact_ig_prefix:'O síguenos en',
+gtech1_alt:'G-Tech.us - Vista de catálogo y productos',
+gtech2_alt:'G-Tech.us - Identidad y plataforma digital',
+gtech3_alt:'G-Tech.us - Interfaz móvil y experiencia de usuario',
+aria_maps_sim:'Simulador de perfil Google Maps',
+aria_clients_nav:'Navegación entre clientes',
+aria_prev_client:'Ver cliente anterior',
+aria_next_client:'Ver siguiente cliente',
+aria_clients_carousel:'Carrusel de proyectos de clientes',
+aria_gtech_gallery:'Galería de G-Tech.us',
+aria_prev_img:'Imagen anterior',
+aria_next_img:'Siguiente imagen',
+aria_dot1:'Ir a diapositiva 1',
+aria_dot2:'Ir a diapositiva 2',
+aria_dot3:'Ir a diapositiva 3',
+aria_footer_wa:'WhatsApp Asesor comercial al +58 414-9428999',
+aria_footer_ig:'Instagram de VENDO, somosvendo.ve',
+title_verified:'Perfil verificado',
+title_prev:'Anterior',
+title_next:'Siguiente',
+footer_wa:'WhatsApp Asesor: +58 414-9428999',
+footer_ig:'Instagram: @somosvendo.ve',
+footer_geo:'San Diego & Valencia · Carabobo, Venezuela'
+},
+
+en:{
+page_title:'VENDO | Digital presence for businesses & local brands',
+nav_contact:'Contact us',
+hero_h1:'Get your business found, seen, and selling.',
+hero_p:'Websites and Google Maps optimization for businesses in San Diego, Valencia, and Carabobo, as well as international brands. Transparent work with proven results.',
+hero_cta_advisor:'Talk to an advisor',
+hero_cta_services:'View services',
+do_bubble:"I'm Do. I'm here to help optimize your brand.",
+do_alt:'Do, the VENDO mascot',
+maps_tag:'LIVE SIMULATOR · PROVEN IMPACT',
+maps_h2:'The difference between getting found or skipped.',
+maps_p:'82% of shoppers search on Google before visiting a store or ordering delivery. An abandoned profile drives customers away; an optimized profile builds instant trust and sales.',
+maps_feat1_title:'Exact pin & directions:',
+maps_feat1_p:'Your customers arrive straight at your door via Google Maps or Waze without getting lost.',
+maps_feat2_title:'Direct WhatsApp button:',
+maps_feat2_p:'Customers view your catalog, menu, or products and contact you in a single tap from Google.',
+maps_feat3_title:'Real customer reviews:',
+maps_feat3_p:'We provide proven strategies to gather 5-star reviews from real clients and stay in the local Top 3.',
+maps_toggle_bad:'Unoptimized',
+maps_toggle_good:'With VENDO',
+maps_cat:'Local business · San Diego / Valencia, Carabobo',
+maps_act_call:'Call',
+maps_act_wa:'WhatsApp',
+maps_act_dir:'Directions',
+maps_act_web:'Website',
+sim_good_badge:'✓ Verified on Google',
+sim_good_name:'Your Business',
+sim_good_stars:'★★★★★',
+sim_good_rating:'4.9',
+sim_good_reviews:'(58 reviews)',
+sim_good_status:'Open now · Closes 8:00 PM',
+sim_good_note:'✓ Profile optimized and linked to WhatsApp by VENDO',
+sim_bad_badge:'⚠️ Not verified',
+sim_bad_name:'Your Business (Unclaimed)',
+sim_bad_stars:'★★★☆☆',
+sim_bad_rating:'3.1',
+sim_bad_reviews:'(2 old reviews)',
+sim_bad_status:'Hours unconfirmed · May be closed',
+sim_bad_note:'⚠️ Are you the owner of this business? Claim it on Google',
+services_h2:'What we do for your business',
+service1_h3:'Websites',
+service1_p:'Fast, mobile-first websites featuring your product catalog, contact info, and a direct WhatsApp button.',
+service2_h3:'Google Maps',
+service2_p:'Business Profile claimed, verified, and ranked so local neighbors and visitors find you first.',
+service3_h3:'Local Marketing',
+service3_p:'Genuine customer reviews, WhatsApp Business setup, digital catalogs, and conversion-focused funnels.',
+bento_tag:'WHY VENDO · PROFESSIONAL STANDARD',
+bento_h2:'Your brand deserves more than a borrowed link.',
+bento_subtitle:'Many build websites; very few actually solve your visibility and customer acquisition. Here is how we do it:',
+bento_d_badge:'Your Digital Identity',
+bento_d_title:'Tired of your business link looking like this?',
+bento_d_bad_status:'❌ Generic third-party platform links',
+bento_d_bad_note:"Long, confusing to customers, and advertises someone else's platform.",
+bento_d_good_status:'✅ Your own custom domain with VENDO',
+bento_d_good_note:'Clean, memorable, and professional. Fully configured by us (DNS, SSL certificate, and hosting).',
+bento_ssl:'· SSL Secured',
+bento_d_footer:'You never deal with confusing control panels. We deliver your domain fully active so you can focus solely on selling.',
+bento_s_badge:'Real Visibility',
+bento_s_title:"We don't build websites to remain invisible.",
+bento_s_p:'A website that is not indexed is like opening a store in the middle of nowhere. We connect your site to Google Search Console to index your pages for local searches.',
+seo_check1:'✓ URL indexing in Google',
+seo_check2:'✓ Mobile search optimization',
+seo_check3:'✓ Direct Google Maps connection',
+bento_c_badge:'Your Profits',
+bento_c_title:'0% sales commission',
+bento_c_p:'Shoppers browse your catalog and send orders straight to your WhatsApp. No middlemen, no commission fees taken.',
+bento_sup_badge:'Worry-Free Service',
+bento_sup_title:'Dedicated human support',
+bento_sup_p:'Need price updates or new products added? Message us on chat and our technical team handles it promptly.',
+clients_tag:'CASE STUDIES · REAL RESULTS',
+clients_h2:'Who has already stepped into digital visibility?',
+clients_p:'We craft the digital storefront for businesses that compete seriously. Proven impact for local merchants and international clients.',
+gtech_badge:'🇺🇸 International Project · United States',
+gtech_desc:'Modern digital product catalog and tech parts showcase for the US market. High-speed architecture, clean branding, and direct sales focus.',
+gtech_link:'Visit gtechs.us',
+jolie_badge:'🛍️ Digital Catalog & Direct Sales',
+jolie_desc:'Interactive e-commerce web platform for exclusive fragrance collections. Built for smooth mobile browsing and instant WhatsApp order placement.',
+jolie_link:'Visit jolie-fragrances',
+contact_tag:'NEXT STEP · NO OBLIGATION',
+contact_h2:"Tell us about your business and we'll craft the right plan.",
+contact_p:'No confusing technical jargon. We analyze your current digital presence and show you exactly how to scale your brand.',
+contact_perk1:'<strong>Direct commercial advisor:</strong> Chat directly with our sales advisor to discuss plans, custom packages, and pricing with zero hassle.',
+contact_perk2:'<strong>Custom technical development:</strong> Your website, domain, and SEO are backed by dedicated software engineering, not broken templates.',
+contact_perk3:'<strong>Transparent pricing:</strong> You will know the exact budget from day one with no hidden costs or surprise monthly fees.',
+contact_cta_status:'Advisor online on WhatsApp',
+contact_cta_title:'Inquire about plans and pricing',
+contact_cta_desc:'Our sales advisor is available via WhatsApp for businesses in Carabobo, Venezuela, and international projects.',
+contact_cta_btn:'Inquire pricing via WhatsApp',
+contact_ig_prefix:'Follow us on',
+gtech1_alt:'G-Tech.us - Product catalog and showcase',
+gtech2_alt:'G-Tech.us - Brand identity and digital platform',
+gtech3_alt:'G-Tech.us - Mobile interface and user experience',
+aria_maps_sim:'Google Maps business profile simulator',
+aria_clients_nav:'Client navigation',
+aria_prev_client:'View previous client',
+aria_next_client:'View next client',
+aria_clients_carousel:'Client project carousel',
+aria_gtech_gallery:'G-Tech.us gallery',
+aria_prev_img:'Previous image',
+aria_next_img:'Next image',
+aria_dot1:'Go to slide 1',
+aria_dot2:'Go to slide 2',
+aria_dot3:'Go to slide 3',
+aria_footer_wa:'VENDO sales advisor on WhatsApp at +58 414-9428999',
+aria_footer_ig:'VENDO on Instagram, somosvendo.ve',
+title_verified:'Verified profile',
+title_prev:'Previous',
+title_next:'Next',
+footer_wa:'WhatsApp Advisor: +58 414-9428999',
+footer_ig:'Instagram: @somosvendo.ve',
+footer_geo:'San Diego & Valencia · Carabobo, Venezuela'
+}
+};
+
+const switchBtn=document.getElementById('lang-switch-btn');
+const flagSvg=document.getElementById('flag-svg');
+const langLabel=document.getElementById('lang-label');
+
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+
+function detectInitialLanguage(){
+const saved=store('vendo_lang');
+if(saved==='es'||saved==='en')return saved;
+const browserLang=(navigator.language||navigator.userLanguage||'es').toLowerCase();
+if(browserLang.startsWith('en'))return 'en';
+try{
+const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+if(/New_York|Chicago|Los_Angeles|London|Denver/.test(tz))return 'en';
+}catch(e){}
+return 'es';
+}
+
+let currentLang=detectInitialLanguage();
+
+// Expuesto para módulos dependents (p. ej. el simulador de Google Maps)
+window.VENDO_I18N={
+get lang(){return currentLang;},
+t(key){const d=translations[currentLang]||{};return d[key]!==undefined?d[key]:(translations.es[key]||'');}
+};
+
+function waUrlFor(lang){return 'https://wa.me/584149428999?text='+encodeURIComponent(waMessages[lang]||waMessages.es);}
+
+function applyLanguage(lang){
+if(!translations[lang])return;
+currentLang=lang;
+document.documentElement.lang=lang;
+store('vendo_lang',lang);
+const dict=translations[lang];
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+const key=el.getAttribute('data-i18n');
+if(dict[key]!==undefined)el.innerHTML=dict[key];
+});
+document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
+const key=el.getAttribute('data-i18n-alt');
+if(dict[key]!==undefined)el.setAttribute('alt',dict[key]);
+});
+document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+const key=el.getAttribute('data-i18n-aria');
+if(dict[key]!==undefined)el.setAttribute('aria-label',dict[key]);
+});
+document.querySelectorAll('[data-i18n-title]').forEach(el=>{
+const key=el.getAttribute('data-i18n-title');
+if(dict[key]!==undefined)el.setAttribute('title',dict[key]);
+});
+document.querySelectorAll('[data-i18n-href]').forEach(el=>{
+if(el.getAttribute('data-i18n-href')==='wa')el.setAttribute('href',waUrlFor(lang));
+});
+if(dict.page_title)document.title=dict.page_title;
+if(flagSvg&&langLabel){
+flagSvg.innerHTML=flags[lang]||'';
+langLabel.textContent=lang.toUpperCase();
+if(switchBtn)switchBtn.setAttribute('aria-label',lang==='es'?'Switch to English':'Cambiar a Español');
+}
+document.dispatchEvent(new CustomEvent('vendo:langchange',{detail:{lang:lang}}));
+}
+
+switchBtn?.addEventListener('click',()=>applyLanguage(currentLang==='es'?'en':'es'));
+
+applyLanguage(currentLang);
+
+// Detección geográfica por IP (no bloquea la carga). Requiere conexión; si falla se conserva el idioma detectado.
+if(!store('vendo_lang')){
+fetch('https://api.country.is/',{mode:'cors'})
+.then(r=>r.ok?r.json():Promise.reject(new Error('http')))
+.then(data=>{
+if(data&&data.country){
+const enCountries=['US','CA','GB','AU','NZ','IE'];
+const detected=enCountries.includes(data.country)?'en':'es';
+if(detected!==currentLang)applyLanguage(detected);
+}
+})
+.catch(()=>{});
+}
 })();
 </script>
 </body>
