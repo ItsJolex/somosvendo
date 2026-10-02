@@ -30,15 +30,67 @@ h1{font-size:clamp(42px,7vw,84px);letter-spacing:-.02em}
 .do{position:relative;justify-self:center;text-align:center}
 .do img{height:min(380px,50vw);display:block;margin:auto}
 .bub{background:var(--lime);color:var(--ink);border-radius:20px 20px 20px 4px;padding:12px 16px;font-size:14px;max-width:240px;margin:0 auto 18px;text-align:left}
-.maps{background:var(--forest);padding:70px 0}
-.maps .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+/* SECCIÓN GOOGLE MAPS INTERACTIVA */
+.maps{background:var(--forest);padding:90px 0;color:var(--cream);position:relative}
+.maps .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:50px;align-items:center}
+.maps-info h2{font-size:clamp(32px,4.2vw,50px);color:var(--cream);margin:14px 0 18px;line-height:1.1}
+.maps-info p{color:#d1e7d8;line-height:1.6;margin-bottom:24px}
+
+/* Lista de Beneficios con Micro-iconos */
+.maps-features{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.m-feat{display:flex;gap:14px;align-items:flex-start}
+.m-feat-icon{font-size:20px;line-height:1.2;flex-shrink:0;margin-top:2px}
+.m-feat strong{display:block;color:var(--lime);font-size:15px;margin-bottom:2px}
+.m-feat p{font-size:14px;color:#b7d6c2;margin:0;line-height:1.4}
+
+/* Contenedor Interactivo y Toggle */
+.maps-interactive-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;max-width:440px;margin:auto}
+.maps-toggle{display:flex;background:#002b1c;padding:5px;border-radius:999px;border:1px solid rgba(206,241,123,.25);box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.toggle-btn{display:flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;border:none;background:transparent;color:var(--mut);font-family:"Space Mono",monospace;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s ease}
+.toggle-btn.active{background:var(--lime);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.dot-indicator{width:8px;height:8px;border-radius:50%}
+.dot-indicator.red{background:#ff5555}
+.dot-indicator.green{background:#01995a}
+.toggle-btn.active .dot-indicator.green{background:var(--forest)}
+
+/* Tarjeta Google Maps de Alta Fidelidad */
+.map-preview-card{background:var(--cream);color:var(--ink);border-radius:24px;padding:22px;width:100%;box-shadow:0 14px 34px rgba(0,0,0,.35),0 0 0 6px rgba(206,241,123,.2);transition:all .35s cubic-bezier(.4,0,.2,1)}
+.map-preview-card .pin{height:125px;border-radius:16px;background:linear-gradient(135deg,#dfe9c8,#c9dca8);position:relative;margin-bottom:18px;display:flex;align-items:flex-end;padding:10px}
+.map-preview-card .pin:after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;background:var(--forest);border-radius:50% 50% 50% 0;transform:translate(-50%,-60%) rotate(-45deg)}
+.pin-badge{background:rgba(1,68,44,.9);color:var(--lime);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.03em}
+
+.card-title-row{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.card-title-row h3{font-size:22px;margin:0;color:var(--ink)}
+.verified-icon{background:#01774d;color:var(--cream);width:20px;height:20px;border-radius:50%;font-size:11px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold}
+.rating-row{display:flex;align-items:center;gap:6px;font-size:13px;margin-bottom:6px}
+.stars{color:#f5a623;letter-spacing:2px}
+.rating-num{font-weight:700;color:var(--ink)}
+.reviews-count{color:#587965}
+.category-text{font-size:13px;color:#587965;margin:0 0 12px 0}
+.status-pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px;margin-bottom:16px;background:#e3eedc;color:#015e3b}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#01995a}
+
+/* Botones de Acción de Google Maps */
+.acts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px;text-align:center}
+.act-btn{background:var(--forest);color:var(--cream);border-radius:999px;padding:8px 4px;font-size:12px;font-weight:700;text-decoration:none;display:block}
+.act-btn.act-whatsapp{background:var(--lime);color:var(--ink)}
+.card-footer-note{margin-top:16px;padding-top:12px;border-top:1px solid rgba(1,68,44,.15);font-size:12px;color:#015e3b;font-weight:600;text-align:center}
+
+/* ESTADO A: MODO NO OPTIMIZADO (BAD STATE) */
+.map-preview-card.mode-bad{box-shadow:0 14px 34px rgba(0,0,0,.35),0 0 0 6px rgba(255,85,85,.25);background:#fbfbfa}
+.map-preview-card.mode-bad .pin{background:linear-gradient(135deg,#e4e4e2,#cfcfcc)}
+.map-preview-card.mode-bad .pin:after{background:#888884}
+.map-preview-card.mode-bad .pin-badge{background:rgba(180,40,40,.85);color:#fff}
+.map-preview-card.mode-bad .verified-icon{display:none}
+.map-preview-card.mode-bad .stars{color:#c4a77d}
+.map-preview-card.mode-bad .status-pill{background:#fde8e8;color:#c53030}
+.map-preview-card.mode-bad .status-dot{background:#e53e3e}
+.map-preview-card.mode-bad .act-btn{background:#c7d2ca;color:#435f4d}
+.map-preview-card.mode-bad .act-btn.act-whatsapp{opacity:.35;pointer-events:none}
+.map-preview-card.mode-bad .card-footer-note{color:#c53030;border-color:rgba(197,48,48,.2)}
+
+@media(max-width:820px){.maps .wrap{grid-template-columns:1fr;gap:36px}.maps-interactive-wrap{max-width:100%}}
 h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:18px}
-.card{background:var(--cream);color:var(--ink);border-radius:22px;padding:20px;max-width:380px;justify-self:center;width:100%;box-shadow:0 0 0 6px rgba(206,241,123,.25)}
-.pin{height:120px;border-radius:14px;background:linear-gradient(135deg,#dfe9c8,#c9dca8);position:relative;margin-bottom:16px}
-.pin:after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;background:var(--forest);border-radius:50% 50% 50% 0;transform:translate(-50%,-60%) rotate(-45deg)}
-.card h3{font-size:24px}.card small{color:#4b6b57;font-size:13px}
-.acts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.acts span,.acts a{background:var(--forest);color:var(--cream);border-radius:999px;padding:6px 14px;font-size:13px;text-decoration:none;display:inline-block;transition:background .15s,color .15s}
-.acts a:hover{background:var(--ink);box-shadow:inset 0 0 0 2px var(--lime)}
 .svc{padding:80px 0}
 .row{display:grid;grid-template-columns:1fr 2fr;gap:30px;padding:30px 0;border-top:2px solid var(--forest)}
 .row h3{font-size:30px;color:var(--lime)}.row p{color:var(--mut);max-width:58ch}
@@ -137,7 +189,7 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 .cta-extra-links a:hover{text-decoration:underline}
 
 @media(max-width:880px){.bento-grid{grid-template-columns:1fr}.bento-domain,.bento-seo{grid-column:auto}.contact-box{grid-template-columns:1fr;padding:30px 22px;gap:30px}}
-@media(max-width:760px){.hero,.maps .wrap,.row{grid-template-columns:1fr}.do{order:-1}}
+@media(max-width:760px){.hero,.row{grid-template-columns:1fr}.do{order:-1}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -155,11 +207,91 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 </header>
 </div>
 
-<section class="maps"><div class="wrap">
-<div><h2>Aparece cuando te buscan en Google Maps.</h2>
-<p>Creamos, verificamos y ordenamos tu Perfil de Empresa: horarios, fotos, catálogo, botón de WhatsApp y respuestas a tus clientes. Las reseñas se piden a clientes reales, nunca se inventan.</p></div>
-<div class="card" aria-label="Ejemplo de perfil en Google Maps"><div class="pin"></div><h3>Tu negocio</h3><small>Ejemplo de perfil optimizado · San Diego / Valencia, Carabobo</small>
-<div class="acts"><span>Llamar</span><a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">WhatsApp</a><span>Cómo llegar</span><span>Sitio web</span></div></div>
+<!-- SECCIÓN GOOGLE MAPS CON SIMULADOR INTERACTIVO -->
+<section class="maps" id="google-maps"><div class="wrap">
+<!-- Columna Izquierda: Mensaje Persuasivo -->
+<div class="maps-info">
+<span class="tag-kicker" style="background:rgba(206,241,123,.15);color:var(--lime)">SIMULADOR EN VIVO · IMPACTO INMEDIATO</span>
+<h2>La diferencia entre que te encuentren o pasen de largo.</h2>
+<p>El 82% de las personas en San Diego y Valencia buscan en Google antes de salir a comprar o pedir delivery. Un perfil abandonado ahuyenta a los clientes; un perfil optimizado genera confianza y ventas inmediatas.</p>
+
+<div class="maps-features">
+<div class="m-feat">
+<span class="m-feat-icon">📍</span>
+<div>
+<strong>Ubicación y ruta exacta:</strong>
+<p>Tus clientes llegan directo a tu local con Google Maps o Waze sin dar vueltas.</p>
+</div>
+</div>
+<div class="m-feat">
+<span class="m-feat-icon">💬</span>
+<div>
+<strong>Botón directo a WhatsApp:</strong>
+<p>El cliente ve tus fotos, menú o catálogo y te contacta con un solo toque desde Google.</p>
+</div>
+</div>
+<div class="m-feat">
+<span class="m-feat-icon">⭐</span>
+<div>
+<strong>Estrategia de reseñas reales:</strong>
+<p>Te enseñamos a pedir opiniones a clientes satisfechos para mantenerte en el Top 3 local.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Columna Derecha: Tarjeta Interactiva con Toggle -->
+<div class="maps-interactive-wrap">
+<!-- Selector Interactivo (Toggle) -->
+<div class="maps-toggle" role="tablist" aria-label="Simulador de perfil Google Maps">
+<button type="button" class="toggle-btn" id="toggle-bad" role="tab" aria-selected="false">
+<span class="dot-indicator red"></span> Sin optimizar
+</button>
+<button type="button" class="toggle-btn active" id="toggle-good" role="tab" aria-selected="true">
+<span class="dot-indicator green"></span> Con VENDO
+</button>
+</div>
+
+<!-- Tarjeta de Perfil Google Maps Dinámica -->
+<div class="card map-preview-card mode-good" id="map-card" aria-live="polite">
+<div class="pin" id="map-pin">
+<span class="pin-badge" id="pin-badge">✓ Verificado en Google</span>
+</div>
+
+<div class="card-content">
+<div class="card-title-row">
+<h3 id="card-name">Tu Negocio</h3>
+<span class="verified-icon" id="verified-icon" title="Perfil verificado">✓</span>
+</div>
+
+<div class="rating-row" id="card-rating">
+<span class="stars">★★★★★</span>
+<span class="rating-num">4.9</span>
+<span class="reviews-count">(58 opiniones)</span>
+</div>
+
+<p class="category-text">Comercio local · San Diego / Valencia, Carabobo</p>
+
+<div class="status-pill" id="card-status">
+<span class="status-dot"></span>
+<span class="status-label">Abierto ahora · Cierra 8:00 PM</span>
+</div>
+
+<!-- Botones de Acción de Google Maps -->
+<div class="acts" id="card-acts">
+<span class="act-btn">Llamar</span>
+<a href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener" class="act-btn act-whatsapp" id="card-wa-btn">WhatsApp directo</a>
+<span class="act-btn">Cómo llegar</span>
+<span class="act-btn">Sitio web</span>
+</div>
+
+<!-- Pie de Tarjeta / Nota de Estado -->
+<div class="card-footer-note" id="card-footer-note">
+✓ Perfil optimizado y vinculado a WhatsApp por VENDO
+</div>
+</div>
+</div>
+</div>
 </div></section>
 
 <section class="svc" id="servicios"><div class="wrap">
@@ -384,6 +516,51 @@ prevBtn.addEventListener('click',()=>{slider.scrollBy({left:-getScrollStep(),beh
 slider.addEventListener('scroll',updateButtonStates,{passive:true});
 window.addEventListener('resize',updateButtonStates,{passive:true});
 updateButtonStates();
+})();
+
+// Simulador Interactivo de Google Maps (Antes vs. Después)
+(function initMapsSimulator(){
+const btnBad=document.getElementById('toggle-bad');
+const btnGood=document.getElementById('toggle-good');
+const card=document.getElementById('map-card');
+const pinBadge=document.getElementById('pin-badge');
+const cardName=document.getElementById('card-name');
+const cardRating=document.getElementById('card-rating');
+const cardStatus=document.getElementById('card-status');
+const footerNote=document.getElementById('card-footer-note');
+const waBtn=document.getElementById('card-wa-btn');
+if(!btnBad||!btnGood||!card)return;
+function setMode(mode){
+if(mode==='bad'){
+btnBad.classList.add('active');
+btnBad.setAttribute('aria-selected','true');
+btnGood.classList.remove('active');
+btnGood.setAttribute('aria-selected','false');
+card.classList.remove('mode-good');
+card.classList.add('mode-bad');
+pinBadge.textContent='⚠️ Sin verificar';
+cardName.textContent='Tu Negocio (Sin reclamar)';
+cardRating.innerHTML='<span class="stars">★★★☆☆</span> <span class="rating-num">3.1</span> <span class="reviews-count">(2 opiniones antiguas)</span>';
+cardStatus.innerHTML='<span class="status-dot"></span> <span class="status-label">Horario no verificado · Podría estar cerrado</span>';
+footerNote.textContent='⚠️ ¿Eres el dueño de esta empresa? Reclámala ahora en Google';
+waBtn.style.display='none';
+}else{
+btnGood.classList.add('active');
+btnGood.setAttribute('aria-selected','true');
+btnBad.classList.remove('active');
+btnBad.setAttribute('aria-selected','false');
+card.classList.remove('mode-bad');
+card.classList.add('mode-good');
+pinBadge.textContent='✓ Verificado en Google';
+cardName.textContent='Tu Negocio';
+cardRating.innerHTML='<span class="stars">★★★★★</span> <span class="rating-num">4.9</span> <span class="reviews-count">(58 opiniones)</span>';
+cardStatus.innerHTML='<span class="status-dot"></span> <span class="status-label">Abierto ahora · Cierra 8:00 PM</span>';
+footerNote.textContent='✓ Perfil optimizado y vinculado a WhatsApp por VENDO';
+waBtn.style.display='block';
+}
+}
+btnBad.addEventListener('click',()=>setMode('bad'));
+btnGood.addEventListener('click',()=>setMode('good'));
 })();
 </script>
 </body>
