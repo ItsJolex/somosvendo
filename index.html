@@ -42,9 +42,6 @@ h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:18px}
 .svc{padding:80px 0}
 .row{display:grid;grid-template-columns:1fr 2fr;gap:30px;padding:30px 0;border-top:2px solid var(--forest)}
 .row h3{font-size:30px;color:var(--lime)}.row p{color:var(--mut);max-width:58ch}
-.band{background:var(--lime);color:var(--ink);padding:70px 0}
-.band .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-.band .btn{background:var(--ink);color:var(--lime)}
 footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 
 /* Canales directos del footer */
@@ -91,6 +88,55 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 .carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
 .dot{width:9px;height:9px;border-radius:50%;background:rgba(248,255,230,.3);border:none;cursor:pointer;padding:0;transition:background .2s,transform .2s}
 .dot.active{background:var(--lime);transform:scale(1.25)}
+
+/* SECCIÓN DIFERENCIA / BENTO GRID */
+.diferencia{padding:90px 0;background:#011810;border-top:2px solid var(--forest)}
+.diff-head{max-width:68ch;margin-bottom:45px}
+.diff-head h2{font-size:clamp(32px,4.5vw,50px);color:var(--cream);margin-bottom:16px}
+.diff-head p{color:var(--mut);line-height:1.6}
+.bento-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+.bento-card{background:#022418;border:1px solid var(--forest);border-radius:22px;padding:30px;position:relative;transition:transform .2s,border-color .2s}
+.bento-card:hover{border-color:var(--lime);transform:translateY(-3px)}
+.bento-badge{display:inline-block;font-size:12px;font-weight:700;color:var(--lime);background:var(--forest);padding:4px 12px;border-radius:999px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.05em}
+.bento-card h3{font-size:24px;color:var(--cream);margin-bottom:12px}
+.bento-card p{color:var(--mut);font-size:15px;line-height:1.6}
+.bento-domain{grid-column:1/2}
+.domain-comparison{display:flex;flex-direction:column;gap:14px;margin:20px 0}
+.domain-box{border-radius:12px;padding:14px 18px;font-size:14px}
+.domain-bad{background:rgba(255,85,85,.08);border:1px dashed rgba(255,85,85,.35);color:#ff9e9e}
+.domain-bad code{display:block;font-family:"Space Mono",monospace;font-size:13px;margin:6px 0;word-break:break-all;color:#ffb3b3;text-decoration:line-through}
+.domain-good{background:rgba(206,241,123,.1);border:1px solid var(--lime);color:var(--cream)}
+.domain-good code{display:block;font-family:"Space Mono",monospace;font-size:18px;font-weight:700;color:var(--lime);margin:6px 0}
+.domain-verified{font-size:12px;color:var(--mut);font-weight:normal}
+.domain-status{font-weight:700;font-size:13px}
+.domain-note{font-size:13px !important;margin:0 !important;color:var(--mut)}
+.bento-footer-text{margin-top:15px;font-size:14px !important;color:var(--cream) !important}
+.bento-seo{grid-column:2/3}
+.seo-icon-pill{display:inline-flex;align-items:center;gap:8px;color:var(--cream);font-size:14px;font-weight:700;margin-bottom:14px}
+.seo-check-list{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.seo-check-list span{font-size:14px;color:var(--lime);background:rgba(1,68,44,.5);padding:6px 12px;border-radius:8px}
+.bento-small{grid-column:auto}
+
+/* MÓDULO DE CONTACTO EXPANDIDO */
+.contact-section{padding:90px 0;background:var(--ink)}
+.contact-box{background:var(--lime);color:var(--ink);border-radius:28px;padding:45px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;box-shadow:0 12px 36px rgba(206,241,123,.2)}
+.contact-content h2{font-size:clamp(32px,4vw,46px);color:var(--ink);margin-bottom:16px;line-height:1.1}
+.contact-content p{color:#013824;font-size:16px;line-height:1.6;margin-bottom:24px}
+.contact-perks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.contact-perks li{font-size:14px;color:var(--ink);line-height:1.5}
+.contact-perks li strong{color:#002517}
+.contact-cta-card{background:var(--ink);color:var(--cream);padding:32px;border-radius:22px;text-align:center;border:1px solid var(--forest)}
+.cta-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--lime);background:#022418;padding:4px 14px;border-radius:999px;margin-bottom:16px}
+.live-pulse{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 3px rgba(206,241,123,.35)}
+.cta-card-title{font-family:"Fredoka",sans-serif;font-size:24px;color:var(--cream);margin-bottom:8px;font-weight:600}
+.cta-card-desc{font-size:14px;color:var(--mut);margin-bottom:24px;line-height:1.5}
+.btn-whatsapp-large{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 24px;font-size:18px;background:var(--lime);color:var(--ink);border-radius:999px;font-weight:700;text-decoration:none;transition:transform .15s,background .15s}
+.btn-whatsapp-large:hover{transform:translateY(-2px);background:#dff899}
+.cta-extra-links{margin-top:18px;font-size:13px;color:var(--mut)}
+.cta-extra-links a{color:var(--lime);text-decoration:none;font-weight:700}
+.cta-extra-links a:hover{text-decoration:underline}
+
+@media(max-width:880px){.bento-grid{grid-template-columns:1fr}.bento-domain,.bento-seo{grid-column:auto}.contact-box{grid-template-columns:1fr;padding:30px 22px;gap:30px}}
 @media(max-width:760px){.hero,.maps .wrap,.row{grid-template-columns:1fr}.do{order:-1}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -121,6 +167,72 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 <div class="row"><h3>Páginas web</h3><p>Sitio rápido y pensado para el celular, con tu catálogo, tus datos de contacto y un botón directo a WhatsApp.</p></div>
 <div class="row"><h3>Google Maps</h3><p>Perfil de Empresa creado, verificado y optimizado para que los vecinos y visitantes te encuentren primero.</p></div>
 <div class="row"><h3>Marketing local</h3><p>Reseñas reales, WhatsApp Business, catálogos digitales y embudos de venta simples. También te ayudamos a vender en Yummy cuando aplica.</p></div>
+</div></section>
+
+<!-- SECCIÓN LA DIFERENCIA VENDO (BENTO GRID) -->
+<section class="diferencia" id="ventajas"><div class="wrap">
+<div class="diff-head">
+<span class="tag-kicker">POR QUÉ VENDO · ESTÁNDAR PROFESIONAL</span>
+<h2>Tu marca merece más que un enlace prestado.</h2>
+<p>Muchos ofrecen páginas web; muy pocos resuelven de verdad la presencia y visibilidad de tu negocio. Así es como trabajamos:</p>
+</div>
+
+<div class="bento-grid">
+<!-- BENTO 1: COMPARATIVA DE DOMINIOS (ANCHO DESTACADO) -->
+<div class="bento-card bento-domain">
+<div class="bento-badge">Tu Identidad Digital</div>
+<h3>¿Cansado de que el link de tu negocio se vea así?</h3>
+
+<div class="domain-comparison">
+<div class="domain-box domain-bad">
+<div class="domain-header">
+<span class="domain-status">❌ Enlaces genéricos de plataformas</span>
+</div>
+<code>plataforma-menu.app/store/v2/valencia_sur?ref=bio_link_8492</code>
+<p class="domain-note">Largo, sospechoso para el cliente y le hace publicidad a otra app.</p>
+</div>
+
+<div class="domain-box domain-good">
+<div class="domain-header">
+<span class="domain-status">✅ Tu dominio propio con VENDO</span>
+</div>
+<code>tumarca.com <span class="domain-verified">· SSL Seguro</span></code>
+<p class="domain-note">Limpio, profesional y memorable. Todo configurado por nosotros (DNS, SSL y hosting).</p>
+</div>
+</div>
+<p class="bento-footer-text">Tú no tocas configuraciones técnicas ni paneles raros. Nosotros dejamos tu dominio listo y funcionando para que solo te preocupes por vender.</p>
+</div>
+
+<!-- BENTO 2: GOOGLE SEARCH CONSOLE & SEO -->
+<div class="bento-card bento-seo">
+<div class="bento-badge">Visibilidad Real</div>
+<div class="seo-icon-pill">
+<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+Google Search Console
+</div>
+<h3>No diseñamos páginas para que queden invisibles.</h3>
+<p>Una página sin indexar es como abrir una tienda en medio del desierto. Conectamos tu web a las herramientas oficiales de Google para que comiences a aparecer en las búsquedas locales de tus clientes.</p>
+<div class="seo-check-list">
+<span>✓ Indexación de URLs en Google</span>
+<span>✓ Optimización para búsqueda móvil</span>
+<span>✓ Vinculación directa con Google Maps</span>
+</div>
+</div>
+
+<!-- BENTO 3: VENTA DIRECTA SIN COMISIONES -->
+<div class="bento-card bento-small">
+<div class="bento-badge">Tus Ganancias</div>
+<h3>0% comisiones por pedido</h3>
+<p>El cliente ve tus productos y con un solo toque te escribe directamente a tu WhatsApp. No intermediarios, no comisiones por venta.</p>
+</div>
+
+<!-- BENTO 4: CERO COMPLICACIONES -->
+<div class="bento-card bento-small">
+<div class="bento-badge">Tranquilidad Total</div>
+<h3>Todo resuelto de principio a fin</h3>
+<p>¿Cambio de precios o nuevo horario? Nos avisas por chat y nos encargamos. Tienes soporte humano y cercano en Valencia.</p>
+</div>
+</div>
 </div></section>
 
 <section class="clients" id="clientes"><div class="wrap">
@@ -184,7 +296,40 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 </div>
 </div></section>
 
-<section class="band" id="contacto"><div class="wrap"><h2 style="margin:0">Cuéntanos de tu negocio y armamos tu plan.</h2><a class="btn" href="https://wa.me/584149428999?text=Hola%20VENDO%2C%20quiero%20optimizar%20la%20presencia%20digital%20de%20mi%20negocio." target="_blank" rel="noopener">Escribir por WhatsApp</a></div></section>
+<!-- MÓDULO DE CONTACTO Y CIERRE EXPANDIDO -->
+<section class="contact-section" id="contacto"><div class="wrap">
+<div class="contact-box">
+<div class="contact-content">
+<span class="tag-kicker" style="background:rgba(1,17,10,.15);color:var(--ink)">PASO SIGUIENTE · SIN COMPROMISO</span>
+<h2>Cuéntanos de tu negocio y te armamos el plan ideal.</h2>
+<p>Sin letras pequeñas ni tecnicismos confusos. Analizamos tu situación actual y te decimos exactamente cómo poner tu negocio en el mapa digital.</p>
+
+<ul class="contact-perks">
+<li><strong>Diagnóstico sin costo:</strong> Revisamos si ya apareces en Google y qué necesitas mejorar.</li>
+<li><strong>Presupuesto claro:</strong> Sabrás el monto exacto desde el día uno, sin sorpresas.</li>
+<li><strong>Atención directa:</strong> Hablas directamente con nosotros por WhatsApp.</li>
+</ul>
+</div>
+
+<div class="contact-cta-card">
+<div class="cta-status">
+<span class="live-pulse"></span>
+<span>Disponibles en WhatsApp</span>
+</div>
+<p class="cta-card-title">Escríbenos ahora mismo</p>
+<p class="cta-card-desc">Atendemos consultas de comercios de Valencia, Carabobo y proyectos internacionales.</p>
+
+<a class="btn btn-whatsapp-large" href="https://wa.me/584149428999?text=Hola%20VENDO%2C%20quiero%20optimizar%20la%20presencia%20digital%20de%20mi%20negocio." target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg>
+Hablar por WhatsApp
+</a>
+
+<div class="cta-extra-links">
+<span>O síguenos en <a href="https://www.instagram.com/somosvendo.ve?utm_source=ig_web_button_share_sheet&amp;stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@somosvendo.ve</a></span>
+</div>
+</div>
+</div>
+</div></section>
 
 <footer><div class="wrap">
 <a class="logo" href="#" aria-label="VENDO"></a>
