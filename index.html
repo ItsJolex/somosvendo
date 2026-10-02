@@ -202,24 +202,74 @@ footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;
 @media(max-width:880px){.bento-grid{grid-template-columns:1fr}.bento-domain,.bento-seo{grid-column:auto}.contact-box{display:flex;flex-direction:column;padding:28px 20px;gap:28px}.contact-cta-card{order:1;width:100%;padding:26px 18px}.contact-content{order:2}.contact-content h2{font-size:26px;margin-bottom:12px}.contact-content p{font-size:15px;margin-bottom:18px}.contact-perks li{font-size:13.5px}}
 @media(max-width:760px){.hero,.row{grid-template-columns:1fr}.do{order:-1}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ==========================================
+   MODAL DE COTIZACIÓN OVERLAY
+   ========================================== */
+.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(1,17,10,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.modal-overlay.active{opacity:1;visibility:visible}
+.modal-card{background:#021a11;border:1px solid var(--forest);border-radius:26px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;padding:36px 30px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 0 4px rgba(206,241,123,.15);transform:translateY(20px) scale(.97);transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.modal-overlay.active .modal-card{transform:translateY(0) scale(1)}
+.modal-close-btn{position:absolute;top:18px;right:20px;background:rgba(255,255,255,.06);border:1px solid var(--forest);color:var(--cream);width:36px;height:36px;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.modal-close-btn:hover{background:var(--lime);color:var(--ink)}
+.modal-lang-btn{position:absolute;top:18px;left:20px;padding:6px 10px;font-size:12px;gap:6px}
+.modal-lang-btn .flag-icon-wrap{width:18px;height:12px}
+.modal-header{margin-bottom:24px;padding-right:44px;padding-top:34px}
+.modal-header h3{font-size:24px;color:var(--cream);margin:10px 0 8px;line-height:1.2}
+.modal-header p{font-size:14px;color:var(--mut);margin:0;line-height:1.5}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--cream);margin-bottom:8px}
+.form-group input[type="text"]{width:100%;background:#01110a;border:1px solid var(--forest);border-radius:12px;padding:12px 16px;color:var(--cream);font-family:inherit;font-size:14px;transition:border-color .15s}
+.form-group input[type="text"]:focus{outline:none;border-color:var(--lime)}
+
+/* PÍLDORAS / CHIPS */
+.chips-grid{display:flex;flex-wrap:wrap;gap:8px}
+.chip-btn{background:#01110a;color:#b7d6c2;border:1px solid var(--forest);padding:8px 14px;border-radius:999px;font-size:12.5px;cursor:pointer;transition:all .15s;text-align:left}
+.chip-btn:hover{border-color:var(--lime);color:var(--cream)}
+.chip-btn.active{background:var(--lime);color:var(--ink);font-weight:700;border-color:var(--lime)}
+
+/* INSTAGRAM INPUT Y PREVIEW */
+.ig-input-wrap{display:flex;align-items:center;background:#01110a;border:1px solid var(--forest);border-radius:12px;padding:0 14px}
+.ig-input-wrap:focus-within{border-color:var(--lime)}
+.ig-at{color:var(--lime);font-weight:700;font-size:16px;margin-right:6px}
+.ig-input-wrap input{border:none!important;background:transparent!important;padding:12px 0!important;flex:1 1 auto;min-width:0;width:auto!important}
+.ig-preview-box{background:#012418;border:1px solid var(--forest);border-radius:14px;padding:12px 16px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ig-preview-header{display:flex;align-items:center;gap:10px;min-width:0}
+.ig-avatar-badge{width:34px;height:34px;border-radius:50%;flex:0 0 auto;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.ig-info{display:flex;flex-direction:column;min-width:0}
+.ig-username{font-size:14px;font-weight:700;color:var(--cream);overflow-wrap:anywhere}
+.ig-status-text{font-size:11px;color:var(--lime)}
+.ig-verify-btn{font-size:12px;color:var(--lime);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:rgba(206,241,123,.1);border:1px solid rgba(206,241,123,.25);transition:all .15s;white-space:nowrap}
+.ig-verify-btn:hover{background:var(--lime);color:var(--ink)}
+
+/* CAJA DE MENSAJE EN VIVO */
+.live-message-box{background:#01110a;border:1px dashed var(--forest);border-radius:14px;padding:14px 16px;margin-bottom:22px}
+.live-msg-header{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--lime);margin-bottom:8px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:0 0 auto}
+.live-msg-text{font-family:"Space Mono",monospace;font-size:12px;color:#d1e7d8;white-space:pre-wrap;word-break:break-word;margin:0;line-height:1.45}
+
+/* BOTÓN DE SUBMIT */
+.btn-modal-submit{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;font-size:16.5px;background:var(--lime);color:var(--ink);border-radius:999px;font-weight:700;border:none;cursor:pointer;transition:transform .15s,background .15s;text-decoration:none}
+.btn-modal-submit:hover{transform:translateY(-2px);background:#dff899}
+
+@media(max-width:600px){.modal-card{padding:26px 18px;border-radius:20px}.modal-header h3{font-size:20px}.btn-modal-submit{font-size:15px}.modal-overlay{padding:12px}.chip-btn{font-size:12px;padding:8px 12px}.ig-preview-box{gap:10px}.ig-verify-btn{white-space:normal}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<nav><a class="logo" href="#" aria-label="VENDO"></a><div class="nav-actions"><a class="btn ghost" data-i18n="nav_contact" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos</a>
+<nav><a class="logo" href="#" aria-label="VENDO"></a><div class="nav-actions"><a class="btn ghost open-quote-modal" data-i18n="nav_contact" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos</a>
 
 <button class="lang-switch-btn" id="lang-switch-btn" type="button" aria-label="Switch to English" title="Switch language / Cambiar idioma">
 <span class="flag-icon-wrap" id="flag-icon-wrap">
 <svg class="flag-svg" id="flag-svg" viewBox="0 0 24 16" width="20" height="14" aria-hidden="true"></svg>
 </span>
-<span class="lang-label" id="lang-label">ES</span>
+<span class="lang-label" id="lang-label" data-lang-label>ES</span>
 </button>
 </div></nav>
 <header class="hero">
 <div>
 <h1 data-i18n="hero_h1">Que tu negocio se encuentre, se vea y venda.</h1>
 <p data-i18n="hero_p">Páginas web y Google Maps optimizado para comercios de San Diego, Valencia y todo Carabobo. Sin promesas infladas: trabajo claro y resultados que puedes comprobar.</p>
-<div class="cta"><a class="btn" data-i18n="hero_cta_advisor" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Hablar con un asesor</a><a class="btn ghost" data-i18n="hero_cta_services" href="#servicios">Ver servicios</a></div>
+<div class="cta"><a class="btn open-quote-modal" data-i18n="hero_cta_advisor" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">Hablar con un asesor</a><a class="btn ghost" data-i18n="hero_cta_services" href="#servicios">Ver servicios</a></div>
 </div>
 <div class="do"><div class="bub" data-i18n="do_bubble">Soy Do. Te ayudo a optimizar tu marca.</div>
 <img alt="Do, la mascota de VENDO" data-i18n-alt="do_alt" src="assets/pet-do.svg"></div>
@@ -470,7 +520,7 @@ Google Search Console
 <p class="cta-card-title" data-i18n="contact_cta_title">Consulta precios y disponibilidad</p>
 <p class="cta-card-desc" data-i18n="contact_cta_desc">Nuestro asesor te atenderá por WhatsApp para comercios de San Diego, Valencia, toda Venezuela o proyectos internacionales.</p>
 
-<a class="btn btn-whatsapp-large" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">
+<a class="btn btn-whatsapp-large open-quote-modal" data-i18n-href="wa" href="https://wa.me/584149428999?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20con%20el%20asesor%20de%20VENDO%20los%20planes%20y%20precios%20para%20mi%20negocio." target="_blank" rel="noopener">
 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg>
 <span data-i18n="contact_cta_btn">Consultar precios por WhatsApp</span>
 </a>
@@ -490,6 +540,102 @@ Google Search Console
 </div>
 <span data-i18n="footer_geo">San Diego &amp; Valencia · Carabobo, Venezuela</span>
 </div></footer>
+
+<!-- MODAL DE COTIZACIÓN PREVIA A WHATSAPP -->
+<div id="quote-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Cerrar ventana" data-i18n-aria="aria_modal_close">×</button>
+    <button type="button" class="lang-switch-btn modal-lang-btn" aria-label="Switch to English"><span class="flag-icon-wrap"><svg class="flag-svg" viewBox="0 0 24 16" aria-hidden="true"></svg></span><span data-lang-label>ES</span></button>
+
+    <div class="modal-header">
+      <span class="tag-kicker" data-i18n="modal_tag">COTIZACIÓN RÁPIDA · ASESOR COMERCIAL</span>
+      <h3 id="modal-title" data-i18n="modal_title">Consulta precios y disponibilidad para tu negocio</h3>
+      <p data-i18n="modal_desc">Completa estos breves datos para que nuestro asesor en San Diego te atienda con la propuesta exacta para tu marca.</p>
+    </div>
+
+    <form id="quote-form">
+      <!-- 1. Nombre de la empresa -->
+      <div class="form-group">
+        <label for="company-name" data-i18n="modal_company_label">Nombre de tu empresa o negocio *</label>
+        <input type="text" id="company-name" required placeholder="Ej: Inversiones El Roble" data-i18n-placeholder="modal_company_placeholder" autocomplete="organization">
+      </div>
+
+      <!-- 2. Rubro / Categoría (Píldoras) -->
+      <div class="form-group">
+        <label data-i18n="modal_category_label">¿A qué rubro pertenece tu negocio? *</label>
+        <div class="chips-grid" id="category-chips" role="group">
+          <button type="button" class="chip-btn active" data-value="ferreteria" aria-pressed="true"><span data-i18n="chip_cat_ferreteria">🔧 Ferretería</span></button>
+          <button type="button" class="chip-btn" data-value="comunicaciones" aria-pressed="false"><span data-i18n="chip_cat_comunicaciones">📻 Comunicaciones (Radios)</span></button>
+          <button type="button" class="chip-btn" data-value="comida" aria-pressed="false"><span data-i18n="chip_cat_comida">🍔 Comida / Gastronomía</span></button>
+          <button type="button" class="chip-btn" data-value="perfumeria" aria-pressed="false"><span data-i18n="chip_cat_perfumeria">🧴 Perfumería</span></button>
+          <button type="button" class="chip-btn" data-value="relojería" aria-pressed="false"><span data-i18n="chip_cat_relojería">⌚ Relojería / Accesorios</span></button>
+          <button type="button" class="chip-btn" data-value="ropa" aria-pressed="false"><span data-i18n="chip_cat_ropa">🛍️ Ropa / Calzado</span></button>
+          <button type="button" class="chip-btn" data-value="servicios" aria-pressed="false"><span data-i18n="chip_cat_servicios">💼 Servicios profesionales</span></button>
+          <button type="button" class="chip-btn" data-value="otro" aria-pressed="false"><span data-i18n="chip_cat_otro">✍️ Otro rubro</span></button>
+        </div>
+        <input type="hidden" id="selected-category" value="ferreteria">
+      </div>
+
+      <!-- 3. Servicio Deseado -->
+      <div class="form-group">
+        <label data-i18n="modal_service_label">¿Qué necesitas principalmente? *</label>
+        <div class="chips-grid chips-3" id="service-chips" role="group">
+          <button type="button" class="chip-btn active" data-value="paquete" aria-pressed="true"><span data-i18n="chip_svc_paquete">🚀 Paquete Completo (Web + Maps)</span></button>
+          <button type="button" class="chip-btn" data-value="web" aria-pressed="false"><span data-i18n="chip_svc_web">🌐 Página web con catálogo</span></button>
+          <button type="button" class="chip-btn" data-value="maps" aria-pressed="false"><span data-i18n="chip_svc_maps">📍 Perfil en Google Maps</span></button>
+        </div>
+        <input type="hidden" id="selected-service" value="paquete">
+      </div>
+
+      <!-- 4. Ubicación -->
+      <div class="form-group">
+        <label data-i18n="modal_location_label">¿Dónde está ubicado tu negocio? *</label>
+        <div class="chips-grid chips-4" id="location-chips" role="group">
+          <button type="button" class="chip-btn active" data-value="sandiego" aria-pressed="true"><span data-i18n="chip_loc_sandiego">📍 San Diego</span></button>
+          <button type="button" class="chip-btn" data-value="valencia" aria-pressed="false"><span data-i18n="chip_loc_valencia">📍 Valencia</span></button>
+          <button type="button" class="chip-btn" data-value="otra_ve" aria-pressed="false"><span data-i18n="chip_loc_otra_ve">🇻🇪 Otra ciudad (Venezuela)</span></button>
+          <button type="button" class="chip-btn" data-value="internacional" aria-pressed="false"><span data-i18n="chip_loc_internacional">🌎 Internacional</span></button>
+        </div>
+        <input type="hidden" id="selected-location" value="sandiego">
+      </div>
+
+      <!-- 5. Cuenta de Instagram + Vista Previa -->
+      <div class="form-group">
+        <label for="instagram-handle" data-i18n="modal_ig_label">Cuenta de Instagram (opcional)</label>
+        <div class="ig-input-wrap">
+          <span class="ig-at">@</span>
+          <input type="text" id="instagram-handle" placeholder="somosvendo.ve" data-i18n-placeholder="modal_ig_placeholder" autocomplete="off" spellcheck="false">
+        </div>
+        <!-- Micro-tarjeta de vista previa -->
+        <div class="ig-preview-box" id="ig-preview-box" style="display:none;">
+          <div class="ig-preview-header">
+            <div class="ig-avatar-badge" id="ig-avatar-letter">V</div>
+            <div class="ig-info">
+              <span class="ig-username" id="ig-preview-user">@somosvendo.ve</span>
+              <span class="ig-status-text" data-i18n="modal_ig_preview_status">Cuenta lista para vincular a tu web</span>
+            </div>
+          </div>
+          <a href="#" id="ig-verify-link" target="_blank" rel="noopener" class="ig-verify-btn"><span data-i18n="modal_ig_verify">Verificar mi perfil en Instagram</span> <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <!-- 6. Previsualización del Mensaje en Vivo -->
+      <div class="live-message-box">
+        <div class="live-msg-header">
+          <span class="live-dot"></span>
+          <span data-i18n="modal_live_msg_title">Mensaje listo para enviar a WhatsApp:</span>
+        </div>
+        <pre class="live-msg-text" id="live-msg-preview" aria-live="polite"></pre>
+      </div>
+
+      <!-- Botón de Envío Directo a WhatsApp -->
+      <button type="submit" class="btn btn-modal-submit" id="btn-submit-quote">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.83 9.83 0 0 0 4.7 1.2h.01c5.43 0 9.85-4.42 9.85-9.86A9.79 9.79 0 0 0 19 4.92 9.79 9.79 0 0 0 12.04 2zm0 17.94h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.13 8.13 0 0 1-1.25-4.34c0-4.52 3.68-8.19 8.2-8.19a8.15 8.15 0 0 1 5.79 2.4 8.13 8.13 0 0 1 2.4 5.8c0 4.52-3.68 8.19-8.19 8.19z"/></svg>
+        <span data-i18n="modal_submit_btn">Enviar consulta al asesor por WhatsApp</span>
+      </button>
+    </form>
+  </div>
+</div>
 
 <script>
 (function initCarousel(){
@@ -695,6 +841,51 @@ aria_footer_ig:'Instagram de VENDO, somosvendo.ve',
 title_verified:'Perfil verificado',
 title_prev:'Anterior',
 title_next:'Siguiente',
+modal_tag:'COTIZACIÓN RÁPIDA · ASESOR COMERCIAL',
+modal_title:'Consulta precios y disponibilidad para tu negocio',
+modal_desc:'Completa estos breves datos para que nuestro asesor en San Diego te atienda con la propuesta exacta para tu marca.',
+modal_company_label:'Nombre de tu empresa o negocio *',
+modal_company_placeholder:'Ej: Inversiones El Roble',
+modal_category_label:'¿A qué rubro pertenece tu negocio? *',
+modal_service_label:'¿Qué necesitas principalmente? *',
+modal_location_label:'¿Dónde está ubicado tu negocio? *',
+modal_ig_label:'Cuenta de Instagram (opcional)',
+modal_ig_placeholder:'somosvendo.ve',
+modal_ig_preview_status:'Cuenta lista para vincular a tu web',
+modal_ig_verify:'Verificar mi perfil en Instagram',
+modal_live_msg_title:'Mensaje listo para enviar a WhatsApp:',
+modal_submit_btn:'Enviar consulta al asesor por WhatsApp',
+aria_modal_close:'Cerrar ventana',
+chip_cat_ferreteria:'🔧 Ferretería',
+chip_cat_comunicaciones:'📻 Comunicaciones (Radios)',
+chip_cat_comida:'🍔 Comida / Gastronomía',
+chip_cat_perfumeria:'🧴 Perfumería',
+chip_cat_relojería:'⌚ Relojería / Accesorios',
+chip_cat_ropa:'🛍️ Ropa / Calzado',
+chip_cat_servicios:'💼 Servicios profesionales',
+chip_cat_otro:'✍️ Otro rubro',
+val_ferreteria:'Ferretería',
+val_comunicaciones:'Comunicaciones (Radios)',
+val_comida:'Comida / Gastronomía',
+val_perfumeria:'Perfumería',
+val_relojería:'Relojería / Accesorios',
+val_ropa:'Ropa / Calzado',
+val_servicios:'Servicios profesionales',
+val_otro:'Otro rubro',
+chip_svc_paquete:'🚀 Paquete Completo (Web + Maps)',
+chip_svc_web:'🌐 Página web con catálogo',
+chip_svc_maps:'📍 Perfil en Google Maps',
+val_paquete:'Paquete Completo (Web + Maps)',
+val_web:'Página web con catálogo',
+val_maps:'Perfil en Google Maps',
+chip_loc_sandiego:'📍 San Diego',
+chip_loc_valencia:'📍 Valencia',
+chip_loc_otra_ve:'🇻🇪 Otra ciudad (Venezuela)',
+chip_loc_internacional:'🌎 Internacional',
+val_sandiego:'San Diego, Carabobo',
+val_valencia:'Valencia, Carabobo',
+val_otra_ve:'Otra ciudad de Venezuela',
+val_internacional:'Internacional / Fuera del país',
 footer_wa:'WhatsApp Asesor: +58 414-9428999',
 footer_ig:'Instagram: @somosvendo.ve',
 footer_geo:'San Diego & Valencia · Carabobo, Venezuela'
@@ -808,15 +999,58 @@ aria_footer_ig:'VENDO on Instagram, somosvendo.ve',
 title_verified:'Verified profile',
 title_prev:'Previous',
 title_next:'Next',
+modal_tag:'FAST QUOTE · SALES ADVISOR',
+modal_title:'Check plans and pricing for your business',
+modal_desc:'Fill in these quick details so our sales advisor in San Diego can provide you with the exact proposal for your brand.',
+modal_company_label:'Business or Brand Name *',
+modal_company_placeholder:'E.g.: Apex Tech Solutions',
+modal_category_label:'What industry does your business belong to? *',
+modal_service_label:'What do you primarily need? *',
+modal_location_label:'Where is your business located? *',
+modal_ig_label:'Instagram Account (optional)',
+modal_ig_placeholder:'yourbrand',
+modal_ig_preview_status:'Account ready to link with your site',
+modal_ig_verify:'Verify profile on Instagram',
+modal_live_msg_title:'Message formatted for WhatsApp:',
+modal_submit_btn:'Send inquiry to advisor on WhatsApp',
+aria_modal_close:'Close window',
+chip_cat_ferreteria:'🔧 Hardware store',
+chip_cat_comunicaciones:'📻 Communications (Radios)',
+chip_cat_comida:'🍔 Food / Gastronomy',
+chip_cat_perfumeria:'🧴 Perfumery',
+chip_cat_relojería:'⌚ Watchmaking / Accessories',
+chip_cat_ropa:'🛍️ Clothing / Footwear',
+chip_cat_servicios:'💼 Professional services',
+chip_cat_otro:'✍️ Other industry',
+val_ferreteria:'Hardware store',
+val_comunicaciones:'Communications (Radios)',
+val_comida:'Food / Gastronomy',
+val_perfumeria:'Perfumery',
+val_relojería:'Watchmaking / Accessories',
+val_ropa:'Clothing / Footwear',
+val_servicios:'Professional services',
+val_otro:'Other industry',
+chip_svc_paquete:'🚀 Full Package (Web + Maps)',
+chip_svc_web:'🌐 Website with catalog',
+chip_svc_maps:'📍 Google Maps profile',
+val_paquete:'Full Package (Web + Maps)',
+val_web:'Website with catalog',
+val_maps:'Google Maps profile',
+chip_loc_sandiego:'📍 San Diego',
+chip_loc_valencia:'📍 Valencia',
+chip_loc_otra_ve:'🇻🇪 Other city (Venezuela)',
+chip_loc_internacional:'🌎 International',
+val_sandiego:'San Diego, Carabobo',
+val_valencia:'Valencia, Carabobo',
+val_otra_ve:'Another city in Venezuela',
+val_internacional:'International / Outside the country',
 footer_wa:'WhatsApp Advisor: +58 414-9428999',
 footer_ig:'Instagram: @somosvendo.ve',
 footer_geo:'San Diego & Valencia · Carabobo, Venezuela'
 }
 };
 
-const switchBtn=document.getElementById('lang-switch-btn');
-const flagSvg=document.getElementById('flag-svg');
-const langLabel=document.getElementById('lang-label');
+const switchBtns=document.querySelectorAll('.lang-switch-btn');
 
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
 
@@ -837,7 +1071,8 @@ let currentLang=detectInitialLanguage();
 // Expuesto para módulos dependents (p. ej. el simulador de Google Maps)
 window.VENDO_I18N={
 get lang(){return currentLang;},
-t(key){const d=translations[currentLang]||{};return d[key]!==undefined?d[key]:(translations.es[key]||'');}
+t(key){const d=translations[currentLang]||{};return d[key]!==undefined?d[key]:(translations.es[key]||'');},
+toggle(){applyLanguage(currentLang==='es'?'en':'es');}
 };
 
 function waUrlFor(lang){return 'https://wa.me/584149428999?text='+encodeURIComponent(waMessages[lang]||waMessages.es);}
@@ -864,19 +1099,21 @@ document.querySelectorAll('[data-i18n-title]').forEach(el=>{
 const key=el.getAttribute('data-i18n-title');
 if(dict[key]!==undefined)el.setAttribute('title',dict[key]);
 });
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+const key=el.getAttribute('data-i18n-placeholder');
+if(dict[key]!==undefined)el.setAttribute('placeholder',dict[key]);
+});
 document.querySelectorAll('[data-i18n-href]').forEach(el=>{
 if(el.getAttribute('data-i18n-href')==='wa')el.setAttribute('href',waUrlFor(lang));
 });
 if(dict.page_title)document.title=dict.page_title;
-if(flagSvg&&langLabel){
-flagSvg.innerHTML=flags[lang]||'';
-langLabel.textContent=lang.toUpperCase();
-if(switchBtn)switchBtn.setAttribute('aria-label',lang==='es'?'Switch to English':'Cambiar a Español');
-}
+document.querySelectorAll('.flag-svg').forEach(el=>{el.innerHTML=flags[lang]||'';});
+document.querySelectorAll('[data-lang-label]').forEach(el=>{el.textContent=lang.toUpperCase();});
+document.querySelectorAll('.lang-switch-btn').forEach(el=>{el.setAttribute('aria-label',lang==='es'?'Switch to English':'Cambiar a Español');});
 document.dispatchEvent(new CustomEvent('vendo:langchange',{detail:{lang:lang}}));
 }
 
-switchBtn?.addEventListener('click',()=>applyLanguage(currentLang==='es'?'en':'es'));
+switchBtns.forEach(b=>b.addEventListener('click',()=>applyLanguage(currentLang==='es'?'en':'es')));
 
 applyLanguage(currentLang);
 
@@ -895,5 +1132,156 @@ if(detected!==currentLang)applyLanguage(detected);
 }
 })();
 </script>
+
+<script>
+// ==========================================
+// MODAL DE COTIZACIÓN PREVIA A WHATSAPP
+// ==========================================
+(function initQuoteModal(){
+const modal=document.getElementById('quote-modal');
+const closeBtn=document.getElementById('modal-close-btn');
+const form=document.getElementById('quote-form');
+if(!modal||!form)return;
+
+const triggerBtns=[...document.querySelectorAll('.open-quote-modal')];
+const card=modal.querySelector('.modal-card');
+const inputCompany=document.getElementById('company-name');
+const inputCategory=document.getElementById('selected-category');
+const inputService=document.getElementById('selected-service');
+const inputLocation=document.getElementById('selected-location');
+const inputIg=document.getElementById('instagram-handle');
+
+const igPreviewBox=document.getElementById('ig-preview-box');
+const igPreviewUser=document.getElementById('ig-preview-user');
+const igVerifyLink=document.getElementById('ig-verify-link');
+const igAvatarLetter=document.getElementById('ig-avatar-letter');
+const liveMsgPreview=document.getElementById('live-msg-preview');
+
+let lastFocused=null;
+
+// El valor de cada chip es una clave estable: la etiqueta y el valor que viaja
+// al mensaje de WhatsApp se resuelven por i18n, para que ambos traducibles.
+function t(key){const i=window.VENDO_I18N;return i?i.t(key):'';}
+function isEn(){return document.documentElement.lang==='en';}
+function chipLabel(key){return t('chip_'+key);}
+function chipValue(key){return t('val_'+key)||key;}
+
+function openModal(e){
+if(e)e.preventDefault();
+lastFocused=document.activeElement;
+modal.classList.add('active');
+modal.setAttribute('aria-hidden','false');
+document.body.style.overflow='hidden';
+updateLiveMessage();
+setTimeout(()=>inputCompany?.focus(),150);
+}
+
+function closeModal(){
+if(!modal.classList.contains('active'))return;
+modal.classList.remove('active');
+modal.setAttribute('aria-hidden','true');
+document.body.style.overflow='';
+if(lastFocused&&document.contains(lastFocused))lastFocused.focus();
+}
+
+triggerBtns.forEach(btn=>btn.addEventListener('click',openModal));
+closeBtn?.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+window.addEventListener('keydown',e=>{
+if(!modal.classList.contains('active'))return;
+if(e.key==='Escape'){closeModal();return;}
+// Retiene el foco dentro del modal mientras está abierto
+if(e.key==='Tab'){
+const f=[...card.querySelectorAll('button,input,a[href],[tabindex]:not([tabindex="-1"])')]
+.filter(el=>el.offsetParent!==null&&!el.disabled);
+if(!f.length)return;
+const first=f[0],last=f[f.length-1];
+if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+}
+});
+
+// Configurar Chips Seleccionables (exclusión mutua)
+function setupChips(containerId,hiddenInput){
+const container=document.getElementById(containerId);
+if(!container)return;
+const chips=[...container.querySelectorAll('.chip-btn')];
+chips.forEach(chip=>chip.addEventListener('click',()=>{
+chips.forEach(c=>{c.classList.remove('active');c.setAttribute('aria-pressed','false');});
+chip.classList.add('active');
+chip.setAttribute('aria-pressed','true');
+hiddenInput.value=chip.getAttribute('data-value');
+updateLiveMessage();
+}));
+}
+
+setupChips('category-chips',inputCategory);
+setupChips('service-chips',inputService);
+setupChips('location-chips',inputLocation);
+
+// Vista Previa de Instagram en vivo
+inputIg?.addEventListener('input',()=>{
+const raw=inputIg.value.trim().replace(/^@+/,'').replace(/\s+/g,'');
+if(raw){
+igPreviewBox.style.display='flex';
+igPreviewUser.textContent='@'+raw;
+igAvatarLetter.textContent=raw.charAt(0).toUpperCase();
+igVerifyLink.href='https://instagram.com/'+encodeURIComponent(raw);
+}else{
+igPreviewBox.style.display='none';
+igVerifyLink.href='#';
+}
+updateLiveMessage();
+});
+
+inputCompany?.addEventListener('input',updateLiveMessage);
+
+// Generador de Mensaje en Tiempo Real
+function updateLiveMessage(){
+const company=inputCompany.value.trim()||(isEn()?'[Your Business Name]':'[Nombre de tu empresa]');
+const category=chipValue(inputCategory.value);
+const service=chipValue(inputService.value);
+const location=chipValue(inputLocation.value);
+const igRaw=inputIg.value.trim().replace(/^@+/,'').replace(/\s+/g,'');
+const igText=igRaw?'@'+igRaw:(isEn()?'Not yet / In progress':'Aún no poseo');
+
+let msg;
+if(isEn()){
+msg=`Hello! I would like to request a quote for my business:\n\n`+
+`🏢 Business: ${company}\n`+
+`📦 Category: ${category}\n`+
+`🎯 Service Needed: ${service}\n`+
+`📍 Location: ${location}\n`+
+`📸 Instagram: ${igText}\n\n`+
+`What plans and options do you have available?`;
+}else{
+msg=`¡Hola! Me gustaría cotizar un plan para mi negocio:\n\n`+
+`🏢 Empresa: ${company}\n`+
+`📦 Rubro: ${category}\n`+
+`🎯 Servicio requerido: ${service}\n`+
+`📍 Ubicación: ${location}\n`+
+`📸 Instagram: ${igText}\n\n`+
+`¿Qué planes y opciones tienen disponibles?`;
+}
+if(liveMsgPreview)liveMsgPreview.textContent=msg;
+return msg;
+}
+
+// Si el usuario cambia el idioma con el modal abierto, el mensaje se regenera
+document.addEventListener('vendo:langchange',updateLiveMessage);
+
+// Enviar a WhatsApp
+form.addEventListener('submit',e=>{
+e.preventDefault();
+const finalMsg=updateLiveMessage();
+window.open('https://wa.me/584149428999?text='+encodeURIComponent(finalMsg),'_blank','noopener');
+closeModal();
+});
+
+// Estado inicial del mensaje
+updateLiveMessage();
+})();
+</script>
+
 </body>
 </html>
