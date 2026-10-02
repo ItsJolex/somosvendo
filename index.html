@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VENDO | Presencia digital para comercios de Valencia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Space+Mono:wght@400;700&display=swap">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<style>
+:root{--ink:#01110a;--forest:#01442c;--lime:#cef17b;--cream:#f8ffe6;--mut:#a9c2a0;
+--logo:url("assets/logo-light-green.svg")}
+*{box-sizing:border-box;margin:0}
+html{background:var(--ink);scroll-behavior:smooth}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--ink);color:var(--cream);font:400 17px/1.55 "Space Mono",ui-monospace,monospace}
+h1,h2,h3,.btn{font-family:"Fredoka","Trebuchet MS",sans-serif;font-weight:600;line-height:1.05}
+.wrap{max-width:1100px;margin:auto;padding:0 22px}
+.logo{display:block;height:34px;aspect-ratio:3.06;background:var(--logo) no-repeat left center/contain}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.btn{display:inline-block;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;text-decoration:none;font-size:18px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.ghost{background:none;color:var(--cream);box-shadow:inset 0 0 0 2px var(--forest)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:30px;align-items:center;padding:50px 0 70px}
+h1{font-size:clamp(42px,7vw,84px);letter-spacing:-.02em}
+.hero p{max-width:46ch;margin:22px 0 30px;color:var(--mut)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.do{position:relative;justify-self:center;text-align:center}
+.do img{height:min(380px,50vw);display:block;margin:auto}
+.bub{background:var(--lime);color:var(--ink);border-radius:20px 20px 20px 4px;padding:12px 16px;font-size:14px;max-width:240px;margin:0 auto 18px;text-align:left}
+.maps{background:var(--forest);padding:70px 0}
+.maps .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+h2{font-size:clamp(32px,4.5vw,52px);margin-bottom:18px}
+.card{background:var(--cream);color:var(--ink);border-radius:22px;padding:20px;max-width:380px;justify-self:center;width:100%;box-shadow:0 0 0 6px rgba(206,241,123,.25)}
+.pin{height:120px;border-radius:14px;background:linear-gradient(135deg,#dfe9c8,#c9dca8);position:relative;margin-bottom:16px}
+.pin:after{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;background:var(--forest);border-radius:50% 50% 50% 0;transform:translate(-50%,-60%) rotate(-45deg)}
+.card h3{font-size:24px}.card small{color:#4b6b57;font-size:13px}
+.acts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.acts span{background:var(--forest);color:var(--cream);border-radius:999px;padding:6px 14px;font-size:13px}
+.svc{padding:80px 0}
+.row{display:grid;grid-template-columns:1fr 2fr;gap:30px;padding:30px 0;border-top:2px solid var(--forest)}
+.row h3{font-size:30px;color:var(--lime)}.row p{color:var(--mut);max-width:58ch}
+.band{background:var(--lime);color:var(--ink);padding:70px 0}
+.band .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.band .btn{background:var(--ink);color:var(--lime)}
+footer{padding:36px 0;color:var(--mut);font-size:14px}footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+@media(max-width:760px){.hero,.maps .wrap,.row{grid-template-columns:1fr}.do{order:-1}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="logo" href="#" aria-label="VENDO"></a><a class="btn ghost" href="#contacto">Escríbenos</a></nav>
+<header class="hero">
+<div>
+<h1>Que tu negocio se encuentre, se vea y venda.</h1>
+<p>Páginas web y Google Maps optimizado para comercios de Valencia, Carabobo. Sin promesas infladas: trabajo claro y resultados que puedes comprobar.</p>
+<div class="cta"><a class="btn" href="#contacto">Hablar por WhatsApp</a><a class="btn ghost" href="#servicios">Ver servicios</a></div>
+</div>
+<div class="do"><div class="bub">Soy Do. Te ayudo a optimizar tu marca.</div>
+<img alt="Do, la mascota de VENDO" src="assets/pet-do.svg"></div>
+</header>
+</div>
+
+<section class="maps"><div class="wrap">
+<div><h2>Aparece cuando te buscan en Google Maps.</h2>
+<p>Creamos, verificamos y ordenamos tu Perfil de Empresa: horarios, fotos, catálogo, botón de WhatsApp y respuestas a tus clientes. Las reseñas se piden a clientes reales, nunca se inventan.</p></div>
+<div class="card" aria-label="Ejemplo de perfil en Google Maps"><div class="pin"></div><h3>Tu negocio</h3><small>Ejemplo de perfil optimizado · Valencia, Carabobo</small>
+<div class="acts"><span>Llamar</span><span>WhatsApp</span><span>Cómo llegar</span><span>Sitio web</span></div></div>
+</div></section>
+
+<section class="svc" id="servicios"><div class="wrap">
+<h2>Lo que hacemos por tu negocio</h2>
+<div class="row"><h3>Páginas web</h3><p>Sitio rápido y pensado para el celular, con tu catálogo, tus datos de contacto y un botón directo a WhatsApp.</p></div>
+<div class="row"><h3>Google Maps</h3><p>Perfil de Empresa creado, verificado y optimizado para que los vecinos y visitantes te encuentren primero.</p></div>
+<div class="row"><h3>Marketing local</h3><p>Reseñas reales, WhatsApp Business, catálogos digitales y embudos de venta simples. También te ayudamos a vender en Yummy cuando aplica.</p></div>
+</div></section>
+
+<section class="band" id="contacto"><div class="wrap"><h2 style="margin:0">Cuéntanos de tu negocio y armamos tu plan.</h2><a class="btn" href="#">Escribir por WhatsApp</a></div></section>
+
+<footer><div class="wrap"><a class="logo" href="#" aria-label="VENDO"></a><span>Valencia, Carabobo · Venezuela</span></div></footer>
+</body>
+</html>
